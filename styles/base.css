@@ -1,0 +1,111 @@
+@font-face {
+    font-family: 'Inter';
+    src: url(/fonts/Inter/static/Inter_18pt-Regular.ttf);
+}
+@font-face {
+    font-family: 'Newsreader';
+    src: url(/fonts/Newsreader/static/Newsreader_14pt-Light.ttf);
+}
+@font-face {
+    font-family: 'Newsreader';
+    src: url(/fonts/Newsreader/static/Newsreader_14pt-LightItalic.ttf);
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Inter';
+    src: url(/fonts/Inter/static/Inter_24pt-SemiBold.ttf);
+    font-weight: 500;
+}
+
+#conteudo{
+    width: 100%;
+    height: 50%;
+    background-image: linear-gradient(to bottom, #F8B7E6,#EA36BA,#7504C0,#30015F);
+}
+
+
+.cabecalho{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.3rem;
+    background-color:#ffffff;
+}
+
+.logo{
+    width: 20%;
+    display: flex;
+    align-items: center;
+}
+
+.logo__imagem{
+    width: 25%;
+    height: auto;
+
+}
+
+.logo__titulo{
+    width: 70%;
+    padding-top: 0.6rem;
+
+    color: #5605DA;
+    font-family: 'Newsreader';
+    font-size: 2.3rem;
+    font-weight: bold;
+    
+}
+.navegacao{
+    display: flex;
+    align-items: center;
+    width: 60%;
+}
+.navegacao__container{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+    
+}
+.navegacao__container__links{
+    color: #5605DA;
+    font-family: 'Inter';
+    font-size: 1.5rem;
+    padding: 1.5rem;
+    font-weight: bold;
+}
+
+.navegacao__container__links:hover{
+    background-color: #cc94d1;
+    border-radius: 1rem;
+    font-weight: 500;
+}
+.rodape{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    background-color: #30015F;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+.rodape__link{
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    height: 30%;
+    margin: 1rem;
+    
+}
+.rodape__link__imagem{
+    width: 20%;
+    height: 20%;
+}
+.rodape__paragrafo{
+    color: white;
+    font-family: 'Inter';
+}
+
+
+/* Bem-vindo ao Seu Guarda-Roupa Virtual! Você já se pegou olhando para o armário cheio de roupas e ainda assim sentindo que não tem nada para vestir? Ou talvez você simplesmente não tenha tempo ou criatividade para montar o look perfeito todos os dias? Nós entendemos você! Nosso guarda-roupa virtual é a solução ideal para quem busca praticidade e estilo sem complicações. Com nossa plataforma, você pode organizar suas roupas, criar combinações incríveis e planejar seus looks com antecedência, tudo de forma simples e intuitiva. Por que escolher nosso guarda-roupa virtual? Economize Tempo: Diga adeus às manhãs estressantes tentando decidir o que vestir. Com apenas alguns cliques, você terá acesso a sugestões de looks personalizados. Inspiração Diária: Receba ideias de combinações baseadas nas últimas tendências e no seu estilo pessoal. Organização Total: Mantenha suas roupas organizadas e visíveis, facilitando a escolha do look perfeito para qualquer ocasião. Planejamento Antecipado: Planeje seus outfits para a semana inteira e nunca mais se preocupe com o que vestir. Transforme a maneira como você se veste e descubra um novo mundo de possibilidades com nosso guarda-roupa virtual. Experimente agora e veja como é fácil estar sempre estiloso! */

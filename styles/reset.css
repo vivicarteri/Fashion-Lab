@@ -1,0 +1,11 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style-type: none;
+    list-style: none;
+    color: inherit;
+    outline: none;
+    resize: none;
+    box-sizing: border-box;
+}

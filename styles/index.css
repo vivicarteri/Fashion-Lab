@@ -1,0 +1,182 @@
+
+.main{
+    width: 100%;
+    height: 70%;
+}
+
+.main__titulo{
+    display: flex;
+    width: 100%;
+    height: 20%;
+    color: white;
+    flex-wrap: nowrap;
+    font-family: 'Newsreader';
+    font-style: italic;
+    font-size: 3rem;
+    justify-content: center;
+    margin: 4rem 0rem;
+    
+}
+.main__apresentacao{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding:  1rem 0rem;
+
+    
+}
+.main__apresentacao__imagem{
+    width: 30%;
+    height: 30%;
+}
+
+.main__apresentacao__paragrafo{
+    width: 40%;
+    color: white;
+    font-size: 2rem;
+    text-align: justify;
+    font-family: 'Inter';
+    line-height: 140%;
+}
+.main__subtitulo{
+    color: white;
+    font-size: 2.7rem;
+    font-family: 'Newsreader';
+    margin: 3rem 4rem;
+}
+.main__tecnologias{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.main__tecnologias__imagem{
+    width:20%;
+    height: 20%;
+
+}
+.main__tecnologias__imagem--html{
+    height: 24%;
+    width: 32%;
+}
+
+.main-section {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 100px;
+  }
+  
+  .side-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 100px;
+  }
+
+
+
+/* dnqjicijncjncjn */
+
+.grande{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    place-items: center;
+    height: 75vh;
+    border: 10px solid #FFFFFF;
+    border-radius: 100px;
+    position: relative;
+    z-index: 15;
+    
+}
+
+.media{display: block;
+    margin-left:30vh;
+    margin-right: auto;
+    width: 23%;
+    height: 38vh;
+    border: 10px solid #FFFFFF;
+    border-radius: 70px;
+    top: -65px;
+    position: relative;
+    z-index: 5;
+}
+
+.pequena{
+
+    display: block;
+    margin-left:auto;
+    margin-right: 30vh;
+    width: 23%;
+    height: 38vh;
+    border: 10px solid #FFFFFF;
+    border-radius: 70px;
+    top: -375px;
+    position: relative;
+
+}
+
+.batata{
+    color: white;
+    font-size:2vmax;
+    text-align: center;
+    top: -330px;
+    position: relative;
+    text-align: center;
+
+}
+
+.benefits-list li::before {
+    content: ''; /* Adiciona um conteúdo vazio antes do item */
+    position: absolute; /* Posiciona o marcador de forma absoluta */
+    top: 50%; /* Alinha verticalmente o marcador no meio do item */
+    transform: translateY(-230%); /* Ajusta o alinhamento vertical do marcador */
+    width: 10px; /* Define a largura do marcador */
+    height: 10px; /* Define a altura do marcador */
+    background-color: #ffffff; /* Define a cor do marcador */
+    border-radius: 50%;
+    left:25dvh;
+}
+
+.benefits-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.benefits-list li {
+    color: #fff; /* Ajuste a cor conforme necessário */
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-size:2vmax;
+    transform: translateY(-360%);
+}
+
+.benefits-list li strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.banana{
+    color: white;
+    font-size:2vmax;
+    text-align: center;
+    top: -330px;
+    position: relative;
+    text-align: center;
+    transform: translateY(-90%);
+}

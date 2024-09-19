@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/cadastro.css">
+    <script src="../scripts/scriptpag4.js"></script>
+
+
+</head>
+<body>
+    <div id="conteudo">
+        <header class="cabecalho" id="header">
+            <figure class="logo" >
+
+                <img class="logo__imagem" src="/img/logopng.png" alt="">
+
+
+                <figcaption class="logo__titulo">Fashion Lab</figcaption>
+            </figure>
+            <nav class="navegacao" id="navigator">
+                <ul class="navegacao__container">
+                    <li class="navegacao__container__links"><a href="index.html">Home</a></li>
+                    <li class="navegacao__container__links"><a href="Busca.html">Meu armário</a></li>
+                    <li class="navegacao__container__links"><a href="Cadastro.html">Cadastro</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="principal">
+            <form class="formulario">
+                <fieldset class="panel formulario__dados">
+                    <h3 class="formulario__dados__titulo">Dados pessoais:</h3>
+                    <div class="formulario__dados__input">
+                        <div class="formulario__dados__input__area">
+                            <label for="nome">Nome: </label>
+                            <input type="text" name="nome" id="name">
+                        </div>
+                        <div class="formulario__dados__input__area">
+                            <label for="nome">CPF: </label>
+                            <input type="text" placeholder="ddd.ddd.ddd-dd" name="cpf" id="cpf">
+                        </div>
+                        <div class="formulario__dados__input__area">
+                            <label for="dataNascimento">Nascimento: </label>
+                            <input type="data" placeholder="dd/mm/aaaa" name="dataNascimento" id="dob">
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="panel formulario__dados">
+                    <h3 class="formulario__dados__titulo"> Dados perfil: </h3>
+                    <div class="formulario__dados__input">
+                        <div class="formulario__dados__input__area">
+                            <label for="usu">Usuário: </label>
+                            <input type="text" id="username">
+                        </div>
+                        <div class="formulario__dados__input__area">
+                            <label for="mail">Email: </label>
+                            <input type="text" placeholder="algumacoisa@algumacoisa..." id="email">
+                        </div>
+                        <div class="formulario__dados__input__area">
+                            <label for="senha">Senha </label>
+                            <input type="password" placeholder="************" id="password1">
+                        </div>
+                        <div class="formulario__dados__input__area">
+                            <label for="senha">Senha: </label>
+                            <input type="password" placeholder="************" id="password2">
+                        </div>
+                    </div>
+                    <div class="formulario__dados__botoes">
+                        <input class="botao" type="button" value="Limpar"
+                        id="btnLimpar">
+                        <input class="botao" type="button" value="Submeter"
+                        id="btnSubmeter" >
+                    </div>
+                </fieldset>
+
+
+            </form>
+        </section>
+        <footer class="rodape">
+            <a class="rodape__link" href="https://github.com/vivicarteri/FashionLab">
+                <img class="rodape__link__imagem" src="img/githubicon.png" alt="Github">
+            </a>
+            <p class="rodape__paragrafo"> <strong>Desenvolvido por</strong> — Anna Clara Luna, 
+                Felipe Pádua, Felipe Ripper, Helena Pereira e Vitória Carteri. </p>
+        </footer>
+</body>
+</html>

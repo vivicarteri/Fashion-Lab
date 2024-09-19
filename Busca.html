@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar</title>
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet" href="/styles/busca.css">
+    <script src="../scripts/scriptpag1.js"></script>
+
+
+</head>
+<body>
+    <div id="conteudo">
+        <header class="cabecalho" id="header">
+            <figure class="logo" >
+                <img class="logo__imagem" src="/img/logopng.png" alt="">
+
+                <figcaption class="logo__titulo">Fashion Lab</figcaption>
+            </figure>
+            <nav class="navegacao" id="navigator">
+                <ul class="navegacao__container">
+                    <li class="navegacao__container__links"><a href="index.html">Home</a></li>
+                    <li class="navegacao__container__links"><a href="Busca.html">Meu armário</a></li>
+                    <li class="navegacao__container__links"><a href="Cadastro.html">Cadastro</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="principal">
+            <form class="selecao" action="">
+                <fieldset class="panel selecao__opcoes">
+                    <h2 class="selecao__opcoes__titulo">Selecione o tipo de verificação: </h2>
+                    <div class="selecao__opcoes__conteudo" action="">
+                        <input class="" value="([^a-zA-Z0-9\\s])" type="radio" name="verificacao" id="caracteres especiais" >
+                        <label for="caracteres">Caracteres especiais </label>
+                        <input type="radio" value="([a-z])" name="verificacao" id="letras minúsculas" >
+                        <label for="letras">Letras minúsculas </label>
+                        <input type="radio" value="([0-9])" name="varificacao" id="digitos" >
+                        <label for="digitos">Digitos numéricos </label>
+                        <input type="radio" value="([A-Z])" name="verificacao" id="letras maiusculas" >
+                        <label for="maiusculas">Maiúsculas </label>
+                    </div>
+                </fieldset>
+                <fieldset class="panel selecao__texto">
+                    <h3 class="selecao__texto__titulo">Escreva seu texto:</h3>
+                    <textarea class="panel selecao__texto__textarea" name="" id="textArea" cols="30" rows="20"></textarea>
+                    <div class="selecao__texto__botoes">
+                        <input class="botao" type="button" value="Limpar" id="btnLimpar">
+                        <input class="botao" type="button" value="Submeter" id="btnSubmeter" onclick="buscarRegex()">
+                    </div>
+                </fieldset>
+
+            </form>
+        </main>
+        <footer class="rodape">
+            <a class="rodape__link" href="https://github.com/vivicarteri/FashionLab">
+                <img class="rodape__link__imagem" src="img/githubicon.png" alt="Github">
+            </a>
+            <p class="rodape__paragrafo"> <strong>Desenvolvido por</strong> — Anna Clara Luna, 
+                Felipe Pádua, Felipe Ripper, Helena Pereira e Vitória Carteri. </p>
+        </footer>
+</body>
+</html>
