@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Login</title>
+  <style>/* Container principal */
+    .login-container {
+  background-color: #fce4f3;
+  border-radius: 20px;
+  padding: 30px 40px;
+  width: 400px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border: 3px solid #6a0d6a;
+  margin: auto;
+}
+
+    /* Título */
+    .login-container h2 {
+      font-family: 'Georgia', serif;
+      color: #6a0d6a;
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+
+    /* Estilo dos campos */
+    .input-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .input-group label {
+      font-size: 16px;
+      display: block;
+      color: #6a0d6a;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #d180d8;
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .input-group input:focus {
+      border-color: #ff69b4;
+    }
+
+    /* Botões */
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .btn {
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      transition: background-color 0.3s ease;
+    }
+
+    .limpar {
+      background-color: #ffe4f7;
+      color: #6a0d6a;
+      border: 2px solid #d180d8;
+    }
+
+    .limpar:hover {
+      background-color: #ffd6f3;
+    }
+
+    .submeter {
+      background-color: #ff69b4;
+      color: white;
+      border: 2px solid #d180d8;
+    }
+
+    .submeter:hover {
+      background-color: #ff85c4;
+    }
+
+  </style>
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="/styles/conteudo.css">
+</head>
+<body>
+    <div id="conteudo">
+        <header class="cabecalho" id="header">
+            <figure class="logo" >
+
+                <img class="logo__imagem" src="/img/logopng.png" alt="">
+
+
+                <figcaption class="logo__titulo">Fashion Lab</figcaption>
+            </figure>
+            <nav class="navegacao" id="navigator">
+                <ul class="navegacao__container">
+                    <li class="navegacao__container__links"><a href="index.html">Home</a></li>
+                    <li class="navegacao__container__links"><a href="Busca.html">Meu armário</a></li>
+                    <li class="navegacao__container__links"><a href="cadastro1.html">Cadastro</a></li>
+                    <li class="navegacao__container__links"><a href="sobre-nos.html">Sobre Nós</a></li>
+                </ul>
+            </nav>
+        </header>
+        <br/><br/><br/>
+  <div class="login-container">
+    <h2>Login:</h2>
+    <form action="caminho-do-login" method="post">
+      <div class="input-group">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu e-mail..." required>
+      </div>
+      <div class="input-group">
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" placeholder="Digite sua senha..." required>
+      </div>
+      <div class="button-group">
+        <button type="reset" class="btn limpar">Limpar</button>
+        <button type="submit" class="btn submeter">Entrar</button>
+      </div>
+    </form>
+    <br/><br/><br/>
+    </div>
+    <br/><br/><br/>
+    <footer class="rodape">
+        <a class="rodape__link" href="https://github.com/vivicarteri/FashionLab">
+            <img class="rodape__link__imagem" src="img/githubicon.png" alt="Github">
+        </a>
+        <p class="rodape__paragrafo"> <strong>Desenvolvido por</strong> — Anna Clara Luna, 
+            Felipe Pádua, Felipe Ripper, Helena Pereira e Vitória Carteri. </p>
+    </footer>
+    </div>
+</body>
+</html>

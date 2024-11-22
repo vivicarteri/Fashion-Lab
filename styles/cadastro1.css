@@ -1,0 +1,54 @@
+/* Estilo do container */
+.cadastro-container {
+    background-color: white;
+    border-radius: 20px;
+    padding: 40px; /* aumentei o padding */
+    width: 500px; /* aumentei a largura */
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin: 70px auto; /* centraliza o quadrado */
+  }
+  
+  /* Estilo do título */
+  .cadastro-container h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 28px; /* aumentei o tamanho da fonte */
+    color: #9b2ba2; /* roxo vibrante */
+    margin-bottom: 25px;
+  }
+  
+/* Botão de primeiro cadastro */
+.primeiro-cadastro {
+    display: inline-block; /* Para comportamento de link como botão */
+    background-color: #ff69b4; /* Rosa vibrante */
+    color: white !important; /* Garante que o texto seja branco */
+    text-decoration: none; /* Remove o sublinhado */
+    border-radius: 12px; /* Bordas arredondadas */
+    font-size: 20px; /* Tamanho da fonte */
+    font-family: 'Arial', sans-serif;
+    padding: 12px 30px; /* Espaçamento interno do botão */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .primeiro-cadastro:hover {
+    background-color: #ff85c4; /* Tom mais claro ao passar o mouse */
+  }
+  
+  /* Texto e link para login */
+  .cadastro-container p {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px; /* aumentei o tamanho da fonte */
+    color: #a1a1a1; /* cinza claro */
+    margin-top: 25px;
+  }
+  
+  .cadastro-container a {
+    color: #9b2ba2; /* roxo vibrante */
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .cadastro-container a:hover {
+    text-decoration: underline;
+  }
