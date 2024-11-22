@@ -1,0 +1,112 @@
+#logo-sobre-nos {
+    height: 25rem;
+    width: 25rem;
+}
+
+#fotos {
+
+}
+
+figure img{
+    border-radius: 100%;
+    height: 20rem;
+    width: 20rem;
+}
+
+#colorido{ color: #ffffff; background: linear-gradient(180deg, #FF9AE3 -2.59%, #EA36BA 36.98%, #7504C0 66.98%);}
+
+
+#colorido p {
+    color: #ffffff;
+    text-align: center;
+    font-size: 450%;     
+}
+
+
+
+h1{
+    text-align: center;
+    color: #9705DA;
+    font-size: xxx-large;
+}
+
+h2{
+    text-align: center;
+    color: #9705DA;
+    font-size: xx-large;
+}
+
+/*======================Sobre Nós===========================*/
+
+#logoGeral{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logoo {
+    border-radius: 50%;
+    height: 21rem;
+    width: 22rem;
+    
+}
+
+
+#fotos{
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;    /* Centraliza verticalmente */
+    gap: 55px;
+    margin: 0%;
+    
+}
+
+figure{
+   
+    text-align: center;     /* Centraliza a legenda */
+  }
+  
+
+img{
+    width: 13rem;
+    border-radius: 50%;
+    height: auto;
+    
+    
+}
+
+.fotinhas {box-shadow: 4px 4px 13px #9705DA; }
+
+legend{
+    font-size: large;
+    color: #9705DA;
+}
+
+
+/* titulo o projeto */
+#projeto{ 
+    color:#9705DA;
+    
+}
+
+
+p{
+    font-size: xx-large;
+    color: #9705DA;
+    width: 70rem;
+    text-align:center;
+    margin: auto;
+    padding: 2%;
+}
+
+#descricao{
+    display: flex;
+    box-shadow: 4px 4px 13px #61008d;
+    border-radius: 2%;
+    justify-content: center;
+    background-color: #dba4f3;
+    align-items: center;
+    width: 40%; /* ou a largura desejada */
+    height: 20%; /* opcional, se quiser centralizar verticalmente */
+}
+
