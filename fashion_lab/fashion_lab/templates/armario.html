@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Fashion Lab</title>
+    {% load static %}
+    <link href="{% static 'CSS/armario.css' %}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Emblema+One&family=Tilt+Warp&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="{% static 'IMG/logo.png' %}" class="logo">
+            <h1 class="titulo_header">FASHION LAB</h1>
+        </div>
+        <nav class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'armario' %}">Meu Armário</a>
+        </nav>
+    </header>
+
+    <main>
+      <div class="quadrado">Partes de Cima</div>
+      
+      <div class="container">
+        <img src="{% static 'IMG/add_icon.webp' %}" class="add img_button">
+        <img src="{% static 'IMG/add_icon.webp' %}" class="add img_button">
+        <img src="{% static 'IMG/add_icon.webp' %}" class="add img_button">
+        <img src="{% static 'IMG/add_icon.webp' %}" class="add img_button">
+        <img src="{% static 'IMG/add_icon.webp' %}" class="add img_button">
+      </div>
+      <div class="quadrado visualizar img_button">Visualizar mais</div>
+
+    </main>
+
+    <footer >
+      <div>
+        <a class="rodape__link" href="https://github.com/vivicarteri/FashionLab">
+            <img class="rodape_link_imagem" src="{% static 'IMG/git_icone' %}">
+        </a>
+        <p> 
+            Desenvolvido por — Anna Clara Luna, Felipe Pádua, Felipe Ripper  e Vitória Carteri. 
+        </p>
+      </div>
+    </footer>
+</body>
+</html>
