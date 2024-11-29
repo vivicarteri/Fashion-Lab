@@ -16,6 +16,16 @@
     src: url(/fonts/Inter/static/Inter_24pt-SemiBold.ttf);
     font-weight: 500;
 }
+@font-face {
+    font-family: 'Emblema';
+    src: url(/fonts/Newsreader/static/EmblemaOne-Regular.ttf);
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'Tilt';
+    src: url(/fonts/Newsreader/static/TiltWarp[XROT\,YROT].ttf);
+    font-weight: 450;
+}
 
 
 .cabecalho{
@@ -44,7 +54,7 @@
     padding-top: 0.6rem;
 
     color: #5605DA;
-    font-family: 'Newsreader';
+    font-family: 'Emblema';;
     font-size: 2.3rem;
     font-weight: bold;
     
@@ -63,7 +73,7 @@
 }
 .navegacao__container__links{
     color: #5605DA;
-    font-family: 'Inter';
+    font-family: 'Tilt';
     font-size: 1.5rem;
     padding: 1.5rem;
     font-weight: bold;

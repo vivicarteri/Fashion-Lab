@@ -9,13 +9,92 @@
     <link rel="stylesheet" href="/styles/index.css">
     <link rel="stylesheet" href="/styles/conteudo.css">
     <script src="scripts/script.js"></script>
+    <style>
+
+
+.fashion-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    top: -145px;
+}
+
+.fashion-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: left;
+}
+
+.fashion-section.reverse {
+    flex-direction: row-reverse;
+}
+
+.fashion-image {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 40px;
+    position: relative;
+    left: -100px;
+    margin-left: 20px;
+    box-shadow: 20px 20px 33px #d605da;
+}
+
+.fashion-text-container {
+    flex: 1;
+}
+
+.fashion-title {
+    color: #ffffff;
+    font-size: 52px;
+    margin: 20px 0 10px;
+    font-family: 'Tilt';
+}
+
+.fashion-text {
+    color: #ffffff;
+    font-size: 30px;
+    font-family: 'Tilt';
+}
+
+
+
+    .contcont {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Altura da tela */
+    }
+    .grande {
+      width: 900px; /* Ajuste o tamanho conforme necessário */
+      border-radius: 40px;
+      position: relative;
+      top: -245px;
+      box-shadow: 20px 20px 33px #9a05da;
+      height: auto;
+    }
+    .pequena {
+      width: 400px; /* Ajuste o tamanho conforme necessário */
+      border-radius: 40px;
+      position: absolute;
+      margin-right: 950px;
+      top: 720px;
+      box-shadow: 20px 20px 33px #9a05da;
+      height: auto;
+    }
+
+    </style>
 </head>
 <body>
     <div id="conteudo">
         <header class="cabecalho" id="header">
             <figure class="logo" >
                 <img class="logo__imagem" src="img/logopng.png" alt="">
-                <figcaption class="logo__titulo">Fashion Lab</figcaption>
+                <figcaption class="logo__titulo">FASHION LAB</figcaption>
             </figure>
             <nav class="navegacao" id="navigator">
                 <ul class="navegacao__container">
@@ -27,56 +106,47 @@
             </nav>
         </header>
         <section class="main">
-            <h1 class="main__titulo"> Seu guarda-roupa reinventado!  </h1>
+            <h1 class="main__titulo"> SEU GUARDA-ROUPA </h1>
+            <h1 class="main_babli"> REINVENTADO! </h1>
+            
 
-                <div>
+                <div class="contcont">
                     <img src="img/imagemmaior.png" class="grande">
-                    <img src="img/imagemmedia.png" class="media">
                     <img src="img/imagempiquituxa.png" class="pequena">
                 </div>
             <br/>
             <br/>
-            <p class="batata"><strong> Bem-vindo ao Seu Guarda-Roupa Virtual! </strong> <br/><br/>
 
-                Você já se pegou olhando para o armário cheio de roupas e 
-                ainda assim sentindo que não tem nada para vestir?<br/> Ou talvez 
-                você simplesmente não tenha tempo ou criatividade para montar 
-                o look perfeito todos os dias?<br/> <br/>Nós entendemos você!
-                <br/><br/>
-                Nosso guarda-roupa virtual é a solução ideal para quem busca 
-                praticidade e estilo sem complicações. <br/> Com nossa plataforma, 
-                você pode organizar suas roupas, criar combinações incríveis 
-                e planejar seus <br/> looks com antecedência, tudo de forma simples 
-                e intuitiva.
-                Por que escolher nosso guarda-roupa virtual?<br/><br/>
-                <br/>
-            </p>
-                <ul class="benefits-list">
-                    <li>Economize Tempo: Diga adeus às manhãs estressantes 
-                        tentando decidir o que vestir. <br/> Com apenas alguns cliques, 
-                        você terá acesso a sugestões de looks personalizados.</li>
-                    <br/>
-                    <li>Innspiração Diária: Receba ideias de combinações 
-                        baseadas nas últimas tendências <br/> e no seu estilo pessoal.</li>
-                    <br/>
-                    <li>Organização Total: Mantenha suas roupas organizadas 
-                        e visíveis, facilitando a escolha<br/>do look perfeito para qualquer ocasião.</li>
-                        <br/>
-                    <li>Planejamento Antecipado: Planeje seus outfits para a 
-                        semana inteira e nunca mais se <br/>preocupe com o que vestir.</li>
-                    <br/>
-                </ul>
-            <br/>
-            <br/>
-            <p class="banana">Transforme a maneira como você se veste e descubra um novo 
-                mundo de possibilidades com<br/> nosso guarda-roupa virtual. Experimente 
-                agora e veja como é fácil estar sempre estiloso!
-            </p>
-            <br/>
-            <br/>
 
-        </section>
-        <footer class="rodape">
+                <div class="fashion-container">
+                    <div class="fashion-section">
+                        <div class="fashion-text-container">
+                            <h1 class="fashion-title">1. Encontre suas peças com poucos cliques</h1><br/>
+                            <p class="fashion-text">Cansou de procurar incessantemente por peças no seu guarda-roupa? Cadastre as peças <br/> do seu armário  no Fashion Lab e tenha tudo organizado em um só lugar.</p>
+                        </div>
+                        <img src="img/imagemmedia.png" alt="Wardrobe" class="fashion-image">
+                    </div>
+                    <div class="fashion-section reverse">
+                        <div class="fashion-text-container">
+                            <h1 class="fashion-title">2. Monte looks sem abrir seu armário</h1><br/>
+                            <p class="fashion-text">Combine suas peças de forma prática, criando looks diretamente no Fashion Lab. Experimente e 
+                                personalize suas combinações com total liberdade!</p>
+                        </div>
+                        <img src="img/meninas.png" alt="Outfits" class="fashion-image">
+                    </div>
+                    <div class="fashion-section">
+                        <div class="fashion-text-container">
+                            <h1 class="fashion-title">3. Consuma conscientemente!</h1><br/>
+                            <p class="fashion-text">Quer entender melhor o impacto de suas escolhas? Acompanhe o histórico de peças do <br/> seu cotidiano  e compre de modo consciente, valorizando o seu guarda-roupa.</p>
+                        </div>
+                        <img src="img/reciclagem.png" alt="Recycle Symbol" class="fashion-image">
+                    </div>
+                </div>
+            
+
+
+
+            <footer class="rodape">
             <a class="rodape__link" href="https://github.com/vivicarteri/FashionLab">
                 <img class="rodape__link__imagem" src="img/githubicon.png" alt="Github">
             </a>
