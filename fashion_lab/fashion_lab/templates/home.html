@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fashion Lab</title>
     {% load static %}
-    <link href="{% static 'CSS/home.css' %}" rel="stylesheet">
+    <link href="../static/CSS/home.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Emblema+One&family=Tilt+Warp&display=swap" rel="stylesheet">
@@ -13,12 +13,12 @@
 <body>
     <header>
         <div class="logo-container">
-            <img src="{% static 'IMG/logo.png' %}" class="logo">
+            <img src="../static/IMG/logo.png" class="logo">
             <h1 class="titulo_header">FASHION LAB</h1>
         </div>
         <nav class="nav-links">
-            <a href="{% url 'home' %}">Home</a>
-            <a href="{% url 'armario' %}">Meu Armário</a>
+            <a href="../templates/home.html">Home</a>
+            <a href="../templates/armario.html">Meu Armário</a>
         </nav>
     </header>
 
@@ -29,12 +29,12 @@
                 <p class="texto_triangulo t2"> REINVENTADO.</p>
             </div>
             <div class="imagens_container">
-                <img src="{% static 'IMG/roupas_rosa.png' %}" class="maior">
-                <img src="{% static 'IMG/roupas_pastel.png' %}" class="media">
+                <img src="../static/IMG/roupas_rosa.png" class="maior">
+                <img src="../static/IMG/roupas_pastel.png" class="media">
             </div>
         </div>
         <div class="section_1">
-            <img src="{% static 'IMG/roupas_roxa.png' %}">
+            <img src="../static/IMG/roupas_roxa.png">
             <div>
                 <h2>1. Encontre suas peças<br>com poucos cliques</h2>
                 <p>
@@ -43,14 +43,14 @@
             </div>
         </div>
         <div class="section_2">
-            <img src="{% static 'IMG/looks.gif' %}">
+            <img src="../static/IMG/looks.gif">
             <div>
                 <h2>2. Monte looks sem<br> abrir seu armário</h2>
                 <p>Combine suas peças de forma prática,<br> criando looks diretamente no Fashion<br> Lab. Experimente e personalize suas <br> combinações com total liberdade!</p>
             </div>
         </div>
         <div class="section_3">
-            <img src="{% static 'IMG/reciclagem.png' %}">
+            <img src="../static/IMG/reciclagem.png">
             <div>
                 <h2>3. Consuma conscientemente!</h2>
                 <p> Quer entender melhor o impacto de suas <br> escolhas? Acompanhe o histórico de peças do <br> seu cotidiano e compre de modo consciente, <br> valorizando o seu guarda-roupa</p>
@@ -61,7 +61,7 @@
     <footer>
         <div>
             <a class="rodape__link" href="https://github.com/vivicarteri/FashionLab">
-                <img class="rodape_link_imagem" src="{% static 'IMG/git_icone.png' %}">
+                <img class="rodape_link_imagem" src="../static/IMG/git_icone.png">
             </a>
             <p>
                 Desenvolvido por — Anna Clara Luna, Felipe Pádua, Felipe Ripper e Vitória Carteri.
