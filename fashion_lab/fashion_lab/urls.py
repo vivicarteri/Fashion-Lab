@@ -23,4 +23,8 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('armario/', views.armario, name='armario'),
     path("admin/", admin.site.urls),
+    path('cadastrar/partecima/', views.cadastra_parte_de_cima, name='cadastrar_parte_de_cima'),
+    path('cadastrar/partebaixo/', views.cadastra_parte_de_baixo, name='cadastrar_parte_de_baixo'),
+    path('cadastrar/calcado/', views.cadastra_calçado, name='cadastrar_calçado'),
+    path('cadastrar/acessorio/', views.cadastra_acessorio, name='cadastrar_acessorio'),
 ]
