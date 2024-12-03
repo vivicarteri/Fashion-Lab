@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre o acessório!</title>
+</head>
+<body>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div>
+            <label for="id_descricao">Descrição:</label>
+            <input type="text" id="id_descricao" name="descricao" maxlength="100">
+        </div>
+
+        <div>
+            <label for="id_cor">Cor:</label>
+            <input type="text" id="id_cor" name="cor" maxlength="100">
+        </div>
+
+        <div>
+            <label for="id_marca">Marca:</label>
+            <input type="text" id="id_marca" name="marca" maxlength="100">
+        </div>
+
+        <div>
+            <label for="id_material">Material:</label>
+            <input type="text" id="id_material" name="material" maxlength="100">
+        </div>
+
+        <div>
+            <label for="id_tipo">Tipo:</label>
+            <select id="id_tipo" name="tipo">
+                {% for value, label in form.fields.tipo.choices %}
+                <option value="{{ value }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div>
+            <label for="id_tamanho">Tamanho:</label>
+            <select id="id_tamanho" name="tamanho">
+                <option value="">Selecione</option>
+                {% for value, label in form.fields.tamanho.choices %}
+                <option value="{{ value }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div>
+            <label for="id_material_acessorio">Material do Acessório:</label>
+            <select id="id_material_acessorio" name="material_acessorio">
+                {% for value, label in form.fields.material_acessorio.choices %}
+                <option value="{{ value }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+</body>
+</html>

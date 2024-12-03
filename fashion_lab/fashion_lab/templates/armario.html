@@ -26,11 +26,44 @@
       <div class="quadrado">Partes de Cima</div>
       
       <div class="container">
-        <img src="{% static 'IMG/add_icon.webp' %}" class="add img_button">
-        <img src="{% static 'IMG/add_icon.webp' %}" class="add img_button">
-        <img src="{% static 'IMG/add_icon.webp' %}" class="add img_button">
-        <img src="{% static 'IMG/add_icon.webp' %}" class="add img_button">
-        <img src="{% static 'IMG/add_icon.webp' %}" class="add img_button">
+        <a href="{% url 'cadastrar_parte_de_cima' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+        <a href="{% url 'cadastrar_parte_de_cima' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+        <a href="{% url 'cadastrar_parte_de_cima' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+        <a href="{% url 'cadastrar_parte_de_cima' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+        <a href="{% url 'cadastrar_parte_de_cima' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+      </div>
+      <div class="quadrado visualizar img_button">Visualizar mais</div>
+
+      <div class="quadrado">Partes de Baixo</div>
+      
+      <div class="container">
+        <a href="{% url 'cadastrar_parte_de_baixo' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+        <a href="{% url 'cadastrar_parte_de_baixo' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+        <a href="{% url 'cadastrar_parte_de_baixo' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+        <a href="{% url 'cadastrar_parte_de_baixo' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+        <a href="{% url 'cadastrar_parte_de_baixo' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+      </div>
+      <div class="quadrado visualizar img_button">Visualizar mais</div>
+
+      <div class="quadrado">Calçados</div>
+      
+      <div class="container">
+        <a href="{% url 'cadastrar_calçado' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+        <a href="{% url 'cadastrar_calçado' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+        <a href="{% url 'cadastrar_calçado' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+        <a href="{% url 'cadastrar_calçado' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+        <a href="{% url 'cadastrar_calçado' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+      </div>
+      <div class="quadrado visualizar img_button">Visualizar mais</div>
+
+      <div class="quadrado">Acessórios</div>
+      
+      <div class="container">
+        <a href="{% url 'cadastrar_acessorio' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+        <a href="{% url 'cadastrar_acessorio' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+        <a href="{% url 'cadastrar_acessorio' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+        <a href="{% url 'cadastrar_acessorio' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+        <a href="{% url 'cadastrar_acessorio' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
       </div>
       <div class="quadrado visualizar img_button">Visualizar mais</div>
 
@@ -39,7 +72,7 @@
     <footer >
       <div>
         <a class="rodape__link" href="https://github.com/vivicarteri/FashionLab">
-            <img class="rodape_link_imagem" src="{% static 'IMG/git_icone' %}">
+            <img class="rodape_link_imagem" src="{% static 'IMG/git_icone.png' %}">
         </a>
         <p> 
             Desenvolvido por — Anna Clara Luna, Felipe Pádua, Felipe Ripper  e Vitória Carteri. 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre a parte de baixo!</title>
+</head>
+<body>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div>
+            <label for="id_descricao">Descrição:</label>
+            <input type="text" id="id_descricao" name="descricao" maxlength="100">
+        </div>
+
+        <div>
+            <label for="id_cor">Cor:</label>
+            <input type="text" id="id_cor" name="cor" maxlength="100">
+        </div>
+
+        <div>
+            <label for="id_marca">Marca:</label>
+            <input type="text" id="id_marca" name="marca" maxlength="100">
+        </div>
+
+        <div>
+            <label for="id_material">Material:</label>
+            <input type="text" id="id_material" name="material" maxlength="100">
+        </div>
+
+        <div>
+            <label for="id_tamanho">Tamanho:</label>
+            <select id="id_tamanho" name="tamanho">
+                {% for value, label in form.fields.tamanho.choices %}
+                <option value="{{ value }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div>
+            <label for="id_comprimento">Comprimento:</label>
+            <select id="id_comprimento" name="comprimento">
+                {% for value, label in form.fields.comprimento.choices %}
+                <option value="{{ value }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+</body>
+</html>

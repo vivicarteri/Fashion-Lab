@@ -5,19 +5,19 @@ from django.core.exceptions import ValidationError
 class Partes_de_Cima(models.Model):
   
   descricao = models.TextField(max_length=100)
-  cor = models.CharField(max_length=100)
+  cor = models.CharField(max_length=20)
   marca = models.CharField(max_length=100)
   material = models.CharField(max_length=100)
   tamanho = models.CharField(
     max_length=10,
     choices=[
-      ('pp', 'PP (36-38)'),
-        ('p', 'P (38-40)'),
-        ('m', 'M (40-42)'),
-        ('g', 'G (42-44)'),
-        ('gg', 'GG (44-46)'),
-        ('xgg', 'XGG (46-48)'),
-        ('extra_gg', 'Extra GG (48+)'),
+      ('pp', 'PP'),
+        ('p', 'P'),
+        ('m', 'M'),
+        ('g', 'G'),
+        ('gg', 'GG'),
+        ('xgg', 'XGG'),
+        ('extra_gg', 'Extra GG'),
     ],
   )
 
@@ -31,7 +31,7 @@ class Partes_de_Cima(models.Model):
 class Partes_de_Baixo(models.Model):
   
   descricao = models.TextField(max_length=100)
-  cor = models.CharField(max_length=100)
+  cor = models.CharField(max_length=20)
   marca = models.CharField(max_length=100)
   material = models.CharField(max_length=100)
   tamanho = models.CharField(max_length=10, 
@@ -59,7 +59,7 @@ class Partes_de_Baixo(models.Model):
 
 class Calçados(models.Model):
     descricao = models.TextField(max_length=100)
-    cor = models.CharField(max_length=100)
+    cor = models.CharField(max_length=20)
     marca = models.CharField(max_length=100)
     material = models.CharField(max_length=100, choices=[ 
         ('borracha', 'Borracha'),
@@ -88,7 +88,7 @@ class Calçados(models.Model):
 
 class Acessórios(models.Model):
     descricao = models.TextField(max_length=100)
-    cor = models.CharField(max_length=100)
+    cor = models.CharField(max_length=20)
     marca = models.CharField(max_length=100)
     material = models.CharField(max_length=100)
 
