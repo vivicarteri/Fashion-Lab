@@ -31,58 +31,35 @@ wap" rel="stylesheet">
         </header>
 
         <section class="principal">
-            <form class="formulario" method="POST">
+            <form class="formulario" method="POST" action="{% url 'login_usuario' %}">
                 {% csrf_token %}
-
                 <fieldset class="panel formulario__dados">
-                    <h3 class="formulario__dados__titulo">Dados pessoais:</h3>
-                    <div class="formulario__dados__input">
-                        <div class="formulario__dados__input__area" >
-                            <label for="id_nome">Nome: </label>
-                            {{ form.nome }}
-                        </div>
-                        <div class="formulario__dados__input__area">
-                            <label for="id_genero">Gênero: </label>
-                            {{ form.genero }}
-                        </div>
-                        <div class="formulario__dados__input__area">
-                            <label for="id_cpf">CPF: </label>
-                            {{ form.cpf }}
-                        </div>
-                        <div class="formulario__dados__input__area">
-                            <label for="id_data_nascimento">Nascimento: </label>
-                            {{ form.data_nascimento }}
-                        </div>
-                    </div>
-                </fieldset>
-                <fieldset class="panel formulario__dados">
-                    <h3 class="formulario__dados__titulo">Dados de perfil:</h3>
+                    <h3 class="formulario__dados__titulo">Faça seu login:</h3>
                     <div class="formulario__dados__input">
                         <div class="formulario__dados__input__area">
-                            <label for="id_usuario">Usuário: </label>
-                            {{ form.usuario }}
+                            <label for="username">Usuário</label>
+                            <input type="text" name="username" required>
                         </div>
                         <div class="formulario__dados__input__area">
-                            <label for="id_email">Email: </label>
-                            {{ form.email }}
+                            <label for="senha">Senha</label>
+                            <input type="password" id="senha" name="password" required>
                         </div>
-                        <div class="formulario__dados__input__area">
-                            <label for="id_senha">Senha: </label>
-                            {{ form.senha }}
+        
+                        {% if error %}
+                            <p>{{ error }}</p>
+                        {% endif %}
+        
+                        <div class="formulario__dados__botoes botao_2">
+                            <input class="botao" type="reset" value="Limpar">
+                            <input class="botao" type="submit" value="Enviar">
                         </div>
-                        <div class="formulario__dados__input__area">
-                            <label for="id_confirmar_senha">Confirmar senha: </label>
-                            {{ form.confirmar_senha }}
-                        </div>
-                    </div>
-                    <div class="formulario__dados__botoes botao_1">
-                        <input class="botao" type="reset" value="Limpar">
-                        <input class="botao" type="submit" value="Enviar">
                     </div>
                 </fieldset>
             </form>
-        </section>
-    </div>
+        </section>        
+
+        </div>
+
         <footer id="cor_footer">
             <div>
                 <a class="rodape__link" href="https://github.com/vivicarteri/FashionLab">

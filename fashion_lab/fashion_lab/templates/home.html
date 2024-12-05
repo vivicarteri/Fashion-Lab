@@ -6,6 +6,7 @@
     <title>Fashion Lab</title>
     {% load static %}
     <link href="{% static 'CSS/home.css' %}" rel="stylesheet">
+    <link href="{% static 'CSS/header_e_footer.css' %}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Emblema+One&family=Tilt+Warp&display=swap" rel="stylesheet">
@@ -19,6 +20,7 @@
         <nav class="nav-links">
             <a href="{% url 'home' %}">Home</a>
             <a href="{% url 'armario' %}">Meu Armário</a>
+            <a href="{% url 'pergunta' %}">Cadastro</a>
         </nav>
     </header>
 
@@ -58,7 +60,7 @@
         </div>
     </main>
 
-    <footer>
+    <footer id="cor_footer">
         <div>
             <a class="rodape__link" href="https://github.com/vivicarteri/FashionLab">
                 <img class="rodape_link_imagem" src="{% static 'IMG/git_icone.png' %}">

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    {% load static %}
+    <link href="{% static 'CSS/header_e_footer.css' %}" rel="stylesheet">
+    <link href="{% static 'CSS/pergunta.css' %}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Emblema+One&family=Newsreader:ital,opsz,wght@0,6..72,312;1,6..72,312&
+family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Tilt+Warp&display=s
+wap" rel="stylesheet">
+
+</head>
+<body>
+    <div id="conteudo">
+        <header>
+            <div class="logo-container">
+                <img src="{% static 'IMG/logo.png' %}" class="logo">
+                <h1 class="titulo_header">FASHION LAB</h1>
+            </div>
+            <nav class="nav-links">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'armario' %}">Meu Armário</a>
+                <a href="{% url 'pergunta' %}">Cadastro</a>
+            </nav>
+        </header>
+        
+
+            <div class="cadastro-container">
+                <h2>Cadastro:</h2>
+                <a href="{% url 'cadastro_usuario' %}" class="primeiro-cadastro">Primeiro cadastro?</a>
+                <p>
+                 Caso já tenha uma conta, clique
+                <a href="{% url 'login_usuario' %}">aqui</a>
+                </p>
+            </div>
+    </div>
+        <footer id="cor_footer">
+            <div>
+                <a class="rodape__link" href="https://github.com/vivicarteri/FashionLab">
+                    <img class="rodape_link_imagem" src="{% static 'IMG/git_icone.png' %}">
+                </a>
+                <p>
+                    Desenvolvido por — Anna Clara Luna, Felipe Pádua, Felipe Ripper e Vitória Carteri.
+                </p>
+            </div>
+        </footer>
+</body>
+</html>
