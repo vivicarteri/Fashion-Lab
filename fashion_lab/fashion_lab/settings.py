@@ -30,6 +30,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+LOGIN_URL = '/login_usuario/'
+
 INSTALLED_APPS = [
     'fashion_lab',
     "django.contrib.admin",

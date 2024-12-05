@@ -20,9 +20,13 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path("admin/", admin.site.urls),
     path('', views.home, name='home'),
     path('armario/', views.armario, name='armario'),
-    path("admin/", admin.site.urls),
+    path('pergunta/', views.pergunta, name='pergunta'),
+    path('cadastro_usuario/', views.cadastro_usuario, name='cadastro_usuario'),
+    path('login_usuario/', views.login_usuario, name='login_usuario'),
+    path('logout/', views.logout_usuario, name='logout_usuario'),
     path('cadastrar/partecima/', views.cadastra_parte_de_cima, name='cadastrar_parte_de_cima'),
     path('cadastrar/partebaixo/', views.cadastra_parte_de_baixo, name='cadastrar_parte_de_baixo'),
     path('cadastrar/calcado/', views.cadastra_calçado, name='cadastrar_calçado'),

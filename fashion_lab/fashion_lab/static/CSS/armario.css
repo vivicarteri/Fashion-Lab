@@ -1,45 +1,61 @@
-body{
-    height: 100%;
-    width:100%;
-  }
+body {
+  background: linear-gradient(to bottom, #F66ED1, #F053C6, #8209BF, #AC1BBD);
+}
 
-  header{
-      background-color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 40px 50px;
-  }
+*{
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style-type: none;
+  list-style: none;
+  color: inherit;
+  outline: none;
+  resize: none;
+  box-sizing: border-box;
+}
 
-  .logo-container{
-      display: flex;
-      align-items: center;
-      gap: 30px;
-  }
-  
-  .logo {height: 50px}
-  
-  .titulo_header{
-      color: #9705DA;
-      font-size: 24px;
-      font-family: 'Emblema One';
-  }
-  
-  .nav-links {
-      display: flex;
-      gap: 20px;
-  }
-  
-  .nav-links a {
-      text-decoration: none;
-      color: #9705DA;
-      font-size: 18px;
-      font-family: 'Tilt Warp';
-  }
-  
-  .nav-links a:hover {
-      color: #F053C6;
-  }
+#boas_vindas{
+  font-family: 'Tilt Warp';
+  color: #9705DA;
+  font-size: 22px;
+  margin-left: 80px;
+  font-weight: normal;
+}
+
+.conteudo{
+  background: white;
+}
+
+.header-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.link_sair {
+  text-decoration: none;
+  color: #9705DA;
+  font-size: 22px;
+  font-family: 'Tilt Warp';
+  margin-right: 80px;
+}
+
+.link_sair:hover {
+  color: #F053C6;
+}
+
+.quadrado_maior {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin: 20px auto;
+  border-radius: 20px;
+  padding: 20px;
+  padding-top: 50px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
 
 .quadrado {
   font-size: 18px;
@@ -87,27 +103,6 @@ body{
   transform: scale(1.1);
 }
 
-footer{
-    width: 100%;
-    font-family: 'Tilt Warp';
-    font-size: 15px;
-    color: white;
-    background: linear-gradient(to bottom, #FF9AE3, #EA36BA, #7504C0);
-    padding: 50px;
-    text-align: center;
-    margin-top: auto;
-  }
-
-.rodape_link_imagem{
-  width: 30px;
-  height: 30px;
-}
-.rodape__link {
-  display: inline-block;
-  margin: 10px;
-  transition: transform 0.3s ease;
-}
-
-.rodape__link:hover {
-  transform: scale(1.1);
+#cor_footer{
+  background: #AC1BBD;
 }

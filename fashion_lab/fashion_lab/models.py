@@ -1,6 +1,23 @@
 from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.core.exceptions import ValidationError
+
+class Usuario(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    nome = models.CharField(max_length=100)
+    genero = models.CharField(
+        max_length=50,
+        choices=[('feminino', 'Feminino'),
+                 ('masculino', 'Masculino'),
+                 ('nao-binario', 'Não-binário'),
+                 ('outro', 'Outro')]
+    )
+    cpf = models.CharField(max_length=14, unique=True)
+    data_nascimento = models.DateField()
+
+    def __str__(self):
+        return self.nome
 
 class Partes_de_Cima(models.Model):
   

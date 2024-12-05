@@ -1,5 +1,65 @@
 from django import forms
-from .models import Partes_de_Cima, Partes_de_Baixo, Calçados, Acessórios
+from .models import Usuario, Partes_de_Cima, Partes_de_Baixo, Calçados, Acessórios
+
+class CadastroUsuarioForm(forms.ModelForm):
+    nome = forms.CharField(
+        label='Nome',
+        max_length=100
+    )
+    genero = forms.ChoiceField(
+        label='Gênero',
+        choices=Usuario._meta.get_field('genero').choices,
+        widget=forms.Select(attrs={'class': 'genero-select'})
+    )
+    cpf = forms.CharField(
+        label='CPF',
+        max_length=14,
+        widget=forms.TextInput(attrs={'placeholder': 'ddd.ddd.ddd-dd'})
+    )
+    data_nascimento = forms.DateField(
+        label='Data de Nascimento',
+        widget=forms.DateInput(attrs={'type': 'date'})
+    )
+    usuario = forms.CharField(
+        label='Usuário',
+        max_length=50
+    )
+    email = forms.EmailField(
+        label='Email',
+        max_length=100
+    )
+    senha = forms.CharField(
+        label='Senha',
+        max_length=128,
+        widget=forms.PasswordInput(attrs={'placeholder': '************'})
+    )
+    confirmar_senha = forms.CharField(
+        label='Confirmar Senha',
+        max_length=128,
+        widget=forms.PasswordInput(attrs={'placeholder': '************'})
+    )
+
+    def clean(self):
+        cleaned_data = super().clean()
+        senha = cleaned_data.get("senha")
+        confirmar_senha = cleaned_data.get("confirmar_senha")
+
+        if senha and confirmar_senha:
+            if senha != confirmar_senha:
+                raise forms.ValidationError("As senhas não coincidem!")
+
+        return cleaned_data
+
+    class Meta:
+        model = Usuario
+        fields = ['nome', 'genero', 'cpf', 'data_nascimento', 'usuario', 'email', 'senha', 'confirmar_senha']
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.set_password(self.cleaned_data['senha'])
+        if commit:
+            user.save()
+        return user
 
 class PartesDeCimaForm(forms.ModelForm):
     descricao = forms.CharField(

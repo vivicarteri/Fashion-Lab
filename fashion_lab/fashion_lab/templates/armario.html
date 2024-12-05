@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width">
     <title>Fashion Lab</title>
     {% load static %}
+    <link href="{% static 'CSS/header_e_footer.css' %}" rel="stylesheet">
     <link href="{% static 'CSS/armario.css' %}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Emblema+One&family=Tilt+Warp&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <div class="logo-container">
@@ -19,57 +21,67 @@
         <nav class="nav-links">
             <a href="{% url 'home' %}">Home</a>
             <a href="{% url 'armario' %}">Meu Armário</a>
+            <a href="{% url 'pergunta' %}">Cadastro</a>
         </nav>
     </header>
 
-    <main>
-      <div class="quadrado">Partes de Cima</div>
+    <div class="quadrado_maior conteudo">
+      <main>
+        {% if request.user.is_authenticated %}
+        <div class="header-info">
+            <b id="boas_vindas">Bem-vindo, {{ request.user.username }}!</b>
+            <a href="{% url 'logout_usuario' %}" class="link_sair">Sair</a>
+        </div>
+          {% endif %}
+
+        <div class="quadrado">Partes de Cima</div>
       
-      <div class="container">
-        <a href="{% url 'cadastrar_parte_de_cima' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-        <a href="{% url 'cadastrar_parte_de_cima' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-        <a href="{% url 'cadastrar_parte_de_cima' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-        <a href="{% url 'cadastrar_parte_de_cima' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-        <a href="{% url 'cadastrar_parte_de_cima' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-      </div>
-      <div class="quadrado visualizar img_button">Visualizar mais</div>
+        <div class="container">
+          <a href="{% url 'cadastrar_parte_de_cima' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          <a href="{% url 'cadastrar_parte_de_cima' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          <a href="{% url 'cadastrar_parte_de_cima' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          <a href="{% url 'cadastrar_parte_de_cima' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          <a href="{% url 'cadastrar_parte_de_cima' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+        </div>
+        <div class="quadrado visualizar img_button">Visualizar mais</div>
 
-      <div class="quadrado">Partes de Baixo</div>
+        <div class="quadrado">Partes de Baixo</div>
       
-      <div class="container">
-        <a href="{% url 'cadastrar_parte_de_baixo' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-        <a href="{% url 'cadastrar_parte_de_baixo' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-        <a href="{% url 'cadastrar_parte_de_baixo' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-        <a href="{% url 'cadastrar_parte_de_baixo' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-        <a href="{% url 'cadastrar_parte_de_baixo' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-      </div>
-      <div class="quadrado visualizar img_button">Visualizar mais</div>
+        <div class="container">
+          <a href="{% url 'cadastrar_parte_de_baixo' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          <a href="{% url 'cadastrar_parte_de_baixo' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          <a href="{% url 'cadastrar_parte_de_baixo' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          <a href="{% url 'cadastrar_parte_de_baixo' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          <a href="{% url 'cadastrar_parte_de_baixo' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+        </div>
+        <div class="quadrado visualizar img_button">Visualizar mais</div>
 
-      <div class="quadrado">Calçados</div>
+        <div class="quadrado">Calçados</div>
       
-      <div class="container">
-        <a href="{% url 'cadastrar_calçado' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-        <a href="{% url 'cadastrar_calçado' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-        <a href="{% url 'cadastrar_calçado' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-        <a href="{% url 'cadastrar_calçado' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-        <a href="{% url 'cadastrar_calçado' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-      </div>
-      <div class="quadrado visualizar img_button">Visualizar mais</div>
+        <div class="container">
+          <a href="{% url 'cadastrar_calçado' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          <a href="{% url 'cadastrar_calçado' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          <a href="{% url 'cadastrar_calçado' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          <a href="{% url 'cadastrar_calçado' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          <a href="{% url 'cadastrar_calçado' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+        </div>
+        <div class="quadrado visualizar img_button">Visualizar mais</div>
 
-      <div class="quadrado">Acessórios</div>
+        <div class="quadrado">Acessórios</div>
       
-      <div class="container">
-        <a href="{% url 'cadastrar_acessorio' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-        <a href="{% url 'cadastrar_acessorio' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-        <a href="{% url 'cadastrar_acessorio' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-        <a href="{% url 'cadastrar_acessorio' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-        <a href="{% url 'cadastrar_acessorio' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-      </div>
-      <div class="quadrado visualizar img_button">Visualizar mais</div>
+        <div class="container">
+          <a href="{% url 'cadastrar_acessorio' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          <a href="{% url 'cadastrar_acessorio' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          <a href="{% url 'cadastrar_acessorio' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          <a href="{% url 'cadastrar_acessorio' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          <a href="{% url 'cadastrar_acessorio' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+        </div>
+        <div class="quadrado visualizar img_button">Visualizar mais</div>
 
-    </main>
+      </main>
+    </div>
 
-    <footer >
+    <footer id="cor_footer">
       <div>
         <a class="rodape__link" href="https://github.com/vivicarteri/FashionLab">
             <img class="rodape_link_imagem" src="{% static 'IMG/git_icone.png' %}">
