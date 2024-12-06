@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Lab</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/conteudo.css">
+    <style>
+
+        main {
+            padding: 50px 40px;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 20px;
+            padding: 55px;
+            height: 850px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #7B21F5;
+            font-family: 'Emblema';
+        }
+
+        .main-look {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .main-look img {
+            max-width: 100%;
+            border-radius: 10px;
+            
+        }
+
+        .sort-options {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            margin-bottom: 15px;
+            border: #000;
+
+        }
+
+        .sort-options select {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .grid-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: space-between;
+            width: 40px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .carousel-nav button {
+            background-color: #fff;
+            border: 2px solid #FF47D3;
+            color: #FF47D3;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+            position: relative;
+            top: 10px;
+        }
+
+        .carousel-nav button:hover {
+            background-color: #FF47D3;
+            color: #fff;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px; /* Reduzido o espaçamento entre os itens */
+            flex-grow: 1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .grid-item {
+            width: 120px; /* Ajustar dimensões do contêiner */
+            height: 120px;
+            border: 2px ;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            top: 10px;
+            left: 55px;
+            transition: transform 0.3s, box-shadow 0.3s; /* Suavizar a transformação */
+        }
+
+        .grid-item:hover {
+        border-radius: 10px;
+        transition: background-color 0.3s ease; /* Suavização da cor */
+    }
+
+    .grid-item:hover img {
+        transform: scale(1.1); /* Ampliar a imagem no hover */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adicionar sombra */
+    }
+
+        .grid-item img {
+            max-width: 100%;
+            max-height: 100%;
+            display: none;
+            object-fit: contain; /* Mantém a proporção da imagem */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suavizar efeitos */
+        }
+
+
+        .grid-item .add:hover {
+            color: #7B21F5;
+        }
+
+        .item-img {
+        max-width: 200px; /* Ajuste o tamanho conforme necessário */
+        display: block; /* Faz a imagem aparecer */
+        margin: 0 auto; /* Centraliza a imagem */
+        }
+
+        .grid-item .add {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+        color: #bbb;
+        cursor: pointer;
+        }
+
+        .sort-container {
+        display: flex;
+        align-items: center;
+        gap: 10px; /* Espaço entre o rótulo e o seletor */
+        margin-bottom: 20px; /* Espaço inferior */
+        }
+
+        .sort-container label {
+        font-size: 1rem;
+        color: #333; /* Cor do texto */
+        font-weight: bold;
+        }   
+
+        .sort-container select {
+        padding: 8px 12px;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        outline: none;
+        cursor: pointer;
+        transition: border-color 0.3s;
+        }
+
+        .sort-container select:hover {
+        border-color: #7B21F5; /* Cor ao passar o mouse */
+        }
+
+        .sort-container select:focus {
+        border-color: #FF47D3; /* Cor quando em foco */
+        }
+
+        .grid-item img.visible {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="conteudo">
+    <header class="cabecalho" id="header">
+        <figure class="logo" >
+            <img class="logo__imagem" src="img/logopng.png" alt="">
+            <figcaption class="logo__titulo">FASHION LAB</figcaption>
+        </figure>
+        <nav class="navegacao" id="navigator">
+            <ul class="navegacao__container">
+                <li class="navegacao__container__links"><a href="index.html">Home</a></li>
+                <li class="navegacao__container__links"><a href="Busca.html">Meu armário</a></li>
+                <li class="navegacao__container__links"><a href="Cadastro.html">Cadastro</a></li>
+                <li class="navegacao__container__links"><a href="sobre-nos.html">Sobre Nós</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<main>
+    <div class="container">
+        <div class="title">Meus Looks</div>
+        
+        <!-- Espaço para o look principal -->
+        <div class="main-look">
+            <img src="../img/lookcompleto.png" alt="Look Principal">
+        </div>
+
+        <!-- Opção de classificação -->
+        <div class="sort-container">
+            <label for="sort">Classificar por:</label>
+            <select id="sort" name="sort">
+                <option value="recent">Mais Recentes</option>
+                <option value="popular">Mais Populares</option>
+                <option value="price">Preço</option>
+                <option value="rating">Classificação</option>
+            </select>
+        </div>
+
+        <!-- Primeira linha de peças -->
+        <div class="grid-container" id="carousel-1">
+    <div class="carousel-nav" style="left: 0;">
+        <button class="prev">&lt;</button>
+    </div>
+    <div class="grid">
+        <!-- Adicione mais itens conforme necessário -->
+        <div class="grid-item">
+            <img class="visible" src="../img/preta.png" alt="Peça 3">
+        </div>
+        <div class="grid-item">
+            <img class="visible" src="../img/blusarosa.png" alt="Peça 1">
+        </div>
+        <div class="grid-item">
+            <img class="hidden" src="../img/feliper.jpg" alt="Peça 2">
+            <span class="add">+</span>
+        </div>
+        <div class="grid-item">
+            <img class="hidden" src="https://via.placeholder.com/100" alt="Peça 4">
+            <span class="add">+</span>
+        </div>
+    </div>
+    <div class="carousel-nav" style="right: 0;">
+        <button class="next">&gt;</button>
+    </div>
+</div>
+        
+        <!-- Segunda linha de peças -->
+        <div class="grid-container">
+            <div class="carousel-nav" style="left: 0;">
+                <button>&lt;</button>
+            </div>
+            <div class="grid">
+                <div class="grid-item">
+                    <img class="visible" src="../img/shortpreto.png" alt="Peça 5">
+                </div>
+                <div class="grid-item">
+                    <img class="visible" src="../img/calcapreta.png" alt="Peça 5">
+                </div>
+                <div class="grid-item">
+                    <img class="visible" src="../img/calcajeans.png" alt="Peça 5">
+                </div>
+                <div class="grid-item">
+                    <img class="hidden" src="https://via.placeholder.com/100" alt="Peça 8">
+                    <span class="add">+</span>
+                </div>
+                <!-- Adicione mais imagens conforme necessário -->
+            </div>
+            <div class="carousel-nav" style="right: 0;">
+                <button>&gt;</button>
+            </div>
+        </div>
+    </div>
+    
+</main>
+
+<footer class="rodape">
+    <a class="rodape__link" href="https://github.com/vivicarteri/FashionLab">
+        <img class="rodape__link__imagem" src="img/githubicon.png" alt="Github">
+    </a>
+    <p class="rodape__paragrafo"> <strong>Desenvolvido por</strong> — Anna Clara Luna, 
+        Felipe Pádua, Felipe Ripper, Helena Pereira e Vitória Carteri. </p>
+</footer>
+
+</div>
+</body>
+</html>
