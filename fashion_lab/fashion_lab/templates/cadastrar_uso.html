@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Fashion Lab</title>
+    {% load static %}
+    <link href="{% static 'CSS/header_e_footer.css' %}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Emblema+One&family=Tilt+Warp&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <form method="POST" action="{% url 'cadastrar_uso' roupa.id %}">
+        {% csrf_token %}
+        <label for="data_uso">Data:</label>
+        <input type="date" id="data_uso" name="data_uso" required>
+        
+        <label for="avaliacao">Avaliação:</label>
+        <select id="avaliacao" name="avaliacao" required>
+            {% for i in range(6) %}
+            <option value="{{ i }}">{{ i }} estrelas</option>
+            {% endfor %}
+        </select>
+        
+        <label for="ocasiao">Ocasião:</label>
+        <input type="text" id="ocasiao" name="ocasiao" required>
+        
+        <button type="submit">Cadastrar Uso</button>
+    </form>
+</body>
+
+<footer id="cor_footer">
+    <div>
+      <a class="rodape__link" href="https://github.com/vivicarteri/FashionLab">
+          <img class="rodape_link_imagem" src="{% static 'IMG/git_icone.png' %}">
+      </a>
+      <p> 
+          Desenvolvido por — Anna Clara Luna, Felipe Pádua, Felipe Ripper e Vitória Carteri. 
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

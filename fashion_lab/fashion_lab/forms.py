@@ -1,5 +1,5 @@
 from django import forms
-from .models import Usuario, Partes_de_Cima, Partes_de_Baixo, Calçados, Acessórios
+from .models import Usuario, Partes_de_Cima, Partes_de_Baixo, Calçados, Acessórios, UsoRoupa
 
 class CadastroUsuarioForm(forms.ModelForm):
     nome = forms.CharField(
@@ -207,3 +207,30 @@ class AcessoriosForm(forms.ModelForm):
 
     def save(self, commit=True):
         return super().save(commit=commit)
+    
+
+class UsoRoupaForm(forms.ModelForm):
+    data_uso = forms.DateField(
+        label="Data de Uso",
+        widget=forms.DateInput(attrs={'type': 'date'})
+    )
+    avaliacao = forms.ChoiceField(
+        label="Avaliação",
+        choices=[(i, f"{i} estrelas") for i in range(1, 6)],
+        widget=forms.RadioSelect
+    )
+    ocasiao = forms.ChoiceField(
+        label="Ocasião",
+        choices=[
+            ('trabalho', 'Trabalho'),
+            ('lazer', 'Lazer'),
+            ('festa', 'Festa'),
+            ('casual', 'Casual'),
+            ('formal', 'Formal'),
+            ('outro', 'Outro'),
+        ]
+    )
+
+    class Meta:
+        model = UsoRoupa
+        fields = ['data_uso', 'avaliacao', 'ocasiao']

@@ -2,8 +2,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from .models import Usuario, Partes_de_Cima, Partes_de_Baixo, Calçados, Acessórios
-from .forms import CadastroUsuarioForm, PartesDeCimaForm, PartesDeBaixoForm, CalcadosForm, AcessoriosForm
+from django.contrib.contenttypes.models import ContentType
+from .models import Usuario, Partes_de_Cima, Partes_de_Baixo, Calçados, Acessórios, UsoRoupa
+from .forms import CadastroUsuarioForm, PartesDeCimaForm, PartesDeBaixoForm, CalcadosForm, AcessoriosForm, UsoRoupaForm
 
 def home(request):
     return render(request, 'home.html')
@@ -148,3 +149,22 @@ def cadastra_acessorio(request):
     else:
         form = AcessoriosForm()
     return render(request, 'cadastrar_acessorio.html', {'form': form})
+
+def cadastro_uso_roupa(request, roupa_id, content_type_id):
+    content_type = ContentType.objects.get(id=content_type_id)
+    roupa = content_type.get_object_for_this_type(id=roupa_id)
+
+    if request.method == 'POST':
+        form = UsoRoupaForm(request.POST)
+        if form.is_valid():
+            uso_roupa = form.save(commit=False)
+            uso_roupa.roupa_content_type = content_type
+            uso_roupa.roupa_object_id = roupa.id
+            uso_roupa.save()
+
+        return redirect('armario')
+    
+    else:
+        form = UsoRoupaForm()
+
+    return render(request, 'cadastro_uso.html', {'form': form})
