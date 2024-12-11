@@ -4,7 +4,7 @@ from django.db import models
 from django.core.exceptions import ValidationError
 
 class Usuario(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=1)
     nome = models.CharField(max_length=100)
     genero = models.CharField(
         max_length=50,
@@ -20,7 +20,8 @@ class Usuario(models.Model):
         return self.nome
 
 class Partes_de_Cima(models.Model):
-  
+  usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+  imagem = models.ImageField(upload_to='imagens/partes_de_cima/')
   descricao = models.TextField(max_length=100)
   cor = models.CharField(max_length=20)
   marca = models.CharField(max_length=100)
@@ -46,7 +47,8 @@ class Partes_de_Cima(models.Model):
         verbose_name_plural = "Partes de Cima"
 
 class Partes_de_Baixo(models.Model):
-  
+  usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+  imagem = models.ImageField(upload_to='imagens/partes_de_baixo/')
   descricao = models.TextField(max_length=100)
   cor = models.CharField(max_length=20)
   marca = models.CharField(max_length=100)
@@ -75,6 +77,8 @@ class Partes_de_Baixo(models.Model):
         verbose_name_plural = "Partes de Baixo"
 
 class Calçados(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    imagem = models.ImageField(upload_to='imagens/calcados/')
     descricao = models.TextField(max_length=100)
     cor = models.CharField(max_length=20)
     marca = models.CharField(max_length=100)
@@ -104,10 +108,11 @@ class Calçados(models.Model):
         verbose_name_plural = "Calçados"
 
 class Acessórios(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    imagem = models.ImageField(upload_to='imagens/acessorios/')
     descricao = models.TextField(max_length=100)
     cor = models.CharField(max_length=20)
     marca = models.CharField(max_length=100)
-    material = models.CharField(max_length=100)
 
     tipo = models.CharField(max_length=50, choices=[
         ('bolsa', 'Bolsa'),

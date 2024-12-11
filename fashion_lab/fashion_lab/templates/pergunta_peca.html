@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Fashion Lab</title>
+    {% load static %}
+    <link href="{% static 'CSS/header_e_footer.css' %}" rel="stylesheet">
+    <link href="{% static 'CSS/pergunta_peca.css' %}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Emblema+One&family=Tilt+Warp&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="conteudo">
+    <header>
+        <div class="logo-container">
+            <img src="{% static 'IMG/logo.png' %}" class="logo">
+            <h1 class="titulo_header">FASHION LAB</h1>
+        </div>
+        <nav class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'armario' %}">Meu Armário</a>
+            <a href="{% url 'pergunta' %}">Cadastro</a>
+        </nav>
+    </header>
+
+    <main class="quadrado_maior">
+        <h1 class="texto">Você quer</h1>
+        <div class="container">
+            <div class="quadrado img_button">
+                <a href="{% if tipo == 'parte_de_cima' %}{% url 'parte_de_cima' id=parte.id %}
+                {% elif tipo == 'parte_de_baixo' %}{% url 'parte_de_baixo' id=parte.id %}
+                {% elif tipo == 'calcado' %}{% url 'calcado' id=parte.id %}
+                {% elif tipo == 'acessorio' %}{% url 'acessorio' id=parte.id %}{% endif %}">
+                Visualizar a peça</a>
+            </div>
+            <div class="quadrado img_button">
+                <a href="{% url 'cadastrar_uso' %}">Cadastrar uso</a>
+            </div>
+        </div>
+    </main>
+</div>
+    <footer id="cor_footer">
+        <div>
+          <a class="rodape__link" href="https://github.com/vivicarteri/FashionLab">
+              <img class="rodape_link_imagem" src="{% static 'IMG/git_icone.png' %}">
+          </a>
+          <p class="p_footer"> 
+              Desenvolvido por — Anna Clara Luna, Felipe Pádua, Felipe Ripper  e Vitória Carteri. 
+          </p>
+        </div>
+      </footer>
+
+</body>
+</html>

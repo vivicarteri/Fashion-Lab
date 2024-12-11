@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Fashion Lab</title>
+    {% load static %}
+    <link href="{% static 'CSS/header_e_footer.css' %}" rel="stylesheet">
+    <link href="{% static 'CSS/partes.css' %}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Emblema+One&family=Tilt+Warp&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="{% static 'IMG/logo.png' %}" class="logo">
+            <h1 class="titulo_header">FASHION LAB</h1>
+        </div>
+        <nav class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'armario' %}">Meu Armário</a>
+            <a href="{% url 'pergunta' %}">Cadastro</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="quadrado img_button">
+                <a href="{% url 'armario' %}">Acessórios</a>
+            </div>
+            <div class="img_produto">
+                <img src="{{ acessorio.imagem.url }}" class="img_peca">
+            </div>
+            <div class="quadrado_detalhes cor_1">
+                <h1 class="titulo">{{ acessorio.descricao }}</h1>
+
+                <p>Avaliação:  </p>
+                <div class="rate">
+                    <input type="radio" id="star5" name="rate" value="5" />
+                    <label for="star5" title="text">5 stars</label>
+                    <input type="radio" id="star4" name="rate" value="4" />
+                    <label for="star4" title="text">4 stars</label>
+                    <input type="radio" id="star3" name="rate" value="3" />
+                    <label for="star3" title="text">3 stars</label>
+                    <input type="radio" id="star2" name="rate" value="2" />
+                    <label for="star2" title="text">2 stars</label>
+                    <input type="radio" id="star1" name="rate" value="1" />
+                    <label for="star1" title="text">1 star</label>
+                  </div>
+                <div class="item">
+                    <p>Cor:  {{ acessorio.cor }}</p>
+                    <input type="color" id="cor" name="cor" value="#ff0000">
+                </div> 
+
+                <div class="item">
+                    <p>Marca:  {{ acessorio.marca }}</p>
+                </div> 
+
+                <div class="item">
+                    <p>Material:  {{ acessorio.material }}</p>
+                </div>
+
+                <div class="item">
+                    <p>Tamanho:  {{ acessorio.tamanho }}</p>
+                </div>
+
+                <div class="item">
+                    <p>Comprimento:  {{ acessorio.tamanho }}</p>
+                </div>
+            </div>
+
+            <div class="quadrado_detalhes cor_2">
+                <div class="item">
+                    <p>Quantas vezes já foi vestida no mês?</p>
+                    <input type="number" id="uso" min="0" max="31">
+                </div> 
+                <div class="item">
+                    <p>Último uso: </p>
+                    <input type="date" id="last-use">
+                </div> 
+                <div class="item">
+                    <p>Ocasião para a qual mais vestiu a roupa: </p>
+                    <input type="text" id="ocasiao">
+                </div> 
+            </div>
+
+            <div class="quadrado_detalhes cor_3">
+                <div class="item">
+                    <p>♻️  Pegada de carbono da peça:</p>
+                    <input type="number" id="pegada">
+                </div> 
+                <div class="item">
+                    <p>💧  Quantidade de água investida na peça: </p>
+                    <input type="number" id="agua">
+                </div> 
+            </div>
+        </section>
+
+                <button type="submit">Enviar Avaliação</button>
+            </form>
+    </main>
+
+    <footer id="cor_footer">
+        <div>
+          <a class="rodape__link" href="https://github.com/vivicarteri/FashionLab">
+              <img class="rodape_link_imagem" src="{% static 'IMG/git_icone.png' %}">
+          </a>
+          <p class="p_footer"> 
+              Desenvolvido por — Anna Clara Luna, Felipe Pádua, Felipe Ripper  e Vitória Carteri. 
+          </p>
+        </div>
+      </footer>
+
+</body>
+</html>

@@ -62,6 +62,9 @@ class CadastroUsuarioForm(forms.ModelForm):
         return user
 
 class PartesDeCimaForm(forms.ModelForm):
+    imagem = forms.ImageField(
+        label='Imagem',
+    )
     descricao = forms.CharField(
         label='Descrição',
         max_length=100
@@ -85,9 +88,16 @@ class PartesDeCimaForm(forms.ModelForm):
 
     class Meta:
         model = Partes_de_Cima
-        fields = ['descricao', 'cor', 'marca', 'material', 'tamanho']
+        fields = ['imagem','descricao', 'cor', 'marca', 'material', 'tamanho']
+    
+    def save(self, commit=True):
+        return super().save(commit=commit)
+
 
 class PartesDeBaixoForm(forms.ModelForm):
+    imagem = forms.ImageField(
+        label='Imagem',
+    )
     descricao = forms.CharField(
         label='Descrição',
         max_length=100
@@ -115,9 +125,15 @@ class PartesDeBaixoForm(forms.ModelForm):
 
     class Meta:
         model = Partes_de_Baixo
-        fields = ['descricao', 'cor', 'marca', 'material', 'tamanho', 'comprimento']
+        fields = ['imagem','descricao', 'cor', 'marca', 'material', 'tamanho', 'comprimento']
+
+    def save(self, commit=True):
+        return super().save(commit=commit)
 
 class CalcadosForm(forms.ModelForm):
+    imagem = forms.ImageField(
+        label='Imagem',
+    )
     descricao = forms.CharField(
         label='Descrição',
         max_length=100
@@ -146,9 +162,15 @@ class CalcadosForm(forms.ModelForm):
 
     class Meta:
         model = Calçados
-        fields = ['descricao', 'cor', 'marca', 'material', 'tamanho', 'tipo']
+        fields = ['imagem','descricao', 'cor', 'marca', 'material', 'tamanho', 'tipo']
+
+    def save(self, commit=True):
+        return super().save(commit=commit)
 
 class AcessoriosForm(forms.ModelForm):
+    imagem = forms.ImageField(
+        label='Imagem',
+    )
     descricao = forms.CharField(
         label='Descrição',
         max_length=100
@@ -181,4 +203,7 @@ class AcessoriosForm(forms.ModelForm):
 
     class Meta:
         model = Acessórios
-        fields = ['descricao', 'cor', 'marca', 'material', 'tipo', 'tamanho', 'material_acessorio']
+        fields = ['imagem','descricao', 'cor', 'marca', 'material', 'tipo', 'tamanho', 'material_acessorio']
+
+    def save(self, commit=True):
+        return super().save(commit=commit)

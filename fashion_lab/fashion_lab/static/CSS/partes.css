@@ -1,0 +1,203 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style-type: none;
+    list-style: none;
+    color: inherit;
+    outline: none;
+    resize: none;
+    box-sizing: border-box;
+}
+
+body {
+    background: white;
+}
+
+.quadrado {
+    font-size: 18px;
+    font-family: 'Tilt Warp';
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(to bottom, #B75EF2, #EC43BF);
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
+    margin-left: 100px;
+    margin-top: 50px;
+    padding: 20px; 
+  }
+
+.img_button {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+  
+.img_button:hover {
+    transform: scale(1.1);
+}
+
+.img_produto {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.img_peca {
+    align-items: center;
+    width: 30%;
+    height: auto;
+}
+
+.quadrado_detalhes {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 20px auto;
+    border-radius: 20px;
+    padding: 20px;
+    padding-top: 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  }
+
+.cor_1 {
+    background: linear-gradient(#FD90DF, #EC43BF);
+}
+
+.cor_2 {
+    background: linear-gradient(#EC43BF, #8209BF);
+}
+
+.cor_3 {
+    background: linear-gradient(#8209BF, #3F03A1);
+}
+
+.titulo {
+    font-family: 'Tilt Warp';
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    font-weight: normal;
+}
+
+.rate {
+    display: flex;        
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: row-reverse;
+    height: 46px;
+    padding: 5px;
+}
+
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size: 50px;
+    color:white;
+}
+
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rate > input:checked ~ label {
+    color: #FFEF64;    
+}
+
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #FFEF64;  
+}
+
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #FFEF64;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+p {
+    font-family: 'Tilt Warp';
+    font-size: 25px;
+    margin-left: 40px;
+    color: white;
+    text-align: left;
+    padding: 10px;
+}
+
+input {
+    width: 50px;
+    height: 30px;
+    border: none;
+    padding: 1px;
+    padding-left: 2px;
+    padding-right: 2px;
+    border-radius: 5px;
+}
+
+input[type="number"] {
+    font-family: 'Tilt Warp';
+    font-size: 18px;
+    text-align: center;
+    color: #9705DA;
+}
+
+input[type="date"] {
+    font-family: 'Tilt Warp';
+    font-size: 12px;
+    width: 110px;
+    text-align: center;
+    color: #9705DA;
+}
+
+input[type="text"] {
+    width: 110px;
+}
+
+button {
+    float: right;
+    font-family: 'Tilt Warp';
+    font-size: 15px;
+    text-align: center;
+    background: white;
+    border-radius: 3px;
+    padding: 10px;
+    margin:  30px;
+    margin-right: 70px;
+    color: #9705DA;
+    border-color: #9705DA;
+}
+
+.p_footer {
+    width: 100%;
+    bottom: 0;
+    font-family: 'Tilt Warp';
+    font-size: 15px;
+    text-align: center;
+    color: white;
+    margin: 0;
+}
+
+#cor_footer {
+    background: linear-gradient(to bottom, #FF9AE3, #EA36BA, #7504C0);
+}
