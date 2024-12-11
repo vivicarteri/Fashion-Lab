@@ -82,16 +82,40 @@ body {
 
 .container {
   display: flex;
-  justify-content: space-between;
+  align-items: left;
+  gap: 200px;
   margin-left: 100px;
   margin-right: 100px;
   margin-top: 100px;
   margin-bottom: 70px;
 }
 
-.add {
-  width: 50%;
+.container a {
+  display: inline-block; 
+  margin: 0;
+  padding: 0;
+}
+
+#link_1 {
+  width: 30%;
+}
+
+#link_2 {
+  width: 10%;
+}
+
+.img_roupa {
+  display: block; 
+  width: 100%;
   height: auto;
+  margin: 0;
+}
+
+.add {
+  display: block; 
+  width: 100%;
+  height: auto;
+  margin: 0;
 }
 
 .img_button {

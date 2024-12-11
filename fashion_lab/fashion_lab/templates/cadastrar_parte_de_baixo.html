@@ -4,33 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastre a parte de baixo!</title>
+    <style>
+        /* Título */
+        .login-container h2 {
+            font-family: 'Georgia', serif;
+            color: #6a0d6a;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        /* Estilo dos campos */
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            font-size: 16px;
+            display: block;
+            color: #6a0d6a;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #d180d8;
+            border-radius: 10px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            border-color: #ff69b4;
+        }
+
+        /* Botões */
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .btn {
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s ease;
+        }
+
+        .limpar {
+            background-color: #ffe4f7;
+            color: #6a0d6a;
+            border: 2px solid #d180d8;
+        }
+
+        .limpar:hover {
+            background-color: #ffd6f3;
+        }
+
+        .submeter {
+            background-color: #ff69b4;
+            color: white;
+            border: 2px solid #d180d8;
+        }
+
+        .submeter:hover {
+            background-color: #ff85c4;
+        }
+    </style>
 </head>
 <body>
 
-    <form method="POST">
+    <form method="POST" class="login-container">
         {% csrf_token %}
 
-        <div>
+        <h2>Cadastre a parte de baixo</h2>
+        <div class="input-group">
+            <label for="id_imagem">Imagem:</label>
+            <input type="file" id="id_imagem" name="imagem">
+        </div>
+
+
+        <div class="input-group">
             <label for="id_descricao">Descrição:</label>
             <input type="text" id="id_descricao" name="descricao" maxlength="100">
         </div>
 
-        <div>
+        <div class="input-group">
             <label for="id_cor">Cor:</label>
             <input type="text" id="id_cor" name="cor" maxlength="100">
         </div>
 
-        <div>
+        <div class="input-group">
             <label for="id_marca">Marca:</label>
             <input type="text" id="id_marca" name="marca" maxlength="100">
         </div>
 
-        <div>
+        <div class="input-group">
             <label for="id_material">Material:</label>
             <input type="text" id="id_material" name="material" maxlength="100">
         </div>
 
-        <div>
+        <div class="input-group">
             <label for="id_tamanho">Tamanho:</label>
             <select id="id_tamanho" name="tamanho">
                 {% for value, label in form.fields.tamanho.choices %}
@@ -39,7 +119,7 @@
             </select>
         </div>
 
-        <div>
+        <div class="input-group">
             <label for="id_comprimento">Comprimento:</label>
             <select id="id_comprimento" name="comprimento">
                 {% for value, label in form.fields.comprimento.choices %}
@@ -48,7 +128,10 @@
             </select>
         </div>
 
-        <button type="submit">Cadastrar</button>
+        <div class="button-group">
+            <button type="submit" class="btn submeter">Cadastrar</button>
+            <button type="reset" class="btn limpar">Limpar</button>
+        </div>
     </form>
 
 </body>

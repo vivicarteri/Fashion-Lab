@@ -37,19 +37,29 @@
         <div class="quadrado">Partes de Cima</div>
       
         <div class="container">
-          <a href="{% url 'cadastrar_parte_de_cima' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-          <a href="{% url 'cadastrar_parte_de_cima' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-          <a href="{% url 'cadastrar_parte_de_cima' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-          <a href="{% url 'cadastrar_parte_de_cima' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-          <a href="{% url 'cadastrar_parte_de_cima' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          {% for parte in partes_de_cima %}
+            <a href="{% url 'pergunta_peca' tipo='parte_de_cima' id=parte.id %}" id="link_1">
+              <img src="{{ parte.imagem.url }}" class="img_button img_roupa"></a>
+          {% empty %}
+            <a href="{% url 'cadastrar_parte_de_cima' %}">
+              <img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          {% endfor %}
+          <a href="{% url 'cadastrar_parte_de_cima' %}" id="link_2"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          <a href="{% url 'cadastrar_parte_de_cima' %}" id="link_2"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          <a href="{% url 'cadastrar_parte_de_cima' %}" id="link_2"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
         </div>
         <div class="quadrado visualizar img_button">Visualizar mais</div>
 
         <div class="quadrado">Partes de Baixo</div>
       
         <div class="container">
-          <a href="{% url 'cadastrar_parte_de_baixo' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-          <a href="{% url 'cadastrar_parte_de_baixo' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          {% for parte in partes_de_baixo %}
+            <a href="{% url 'pergunta_peca' tipo='parte_de_baixo' id=parte.id %}" id="link_1">
+              <img src="{{ parte.imagem.url }}" class="img_button img_roupa"></a>
+          {% empty %}
+            <a href="{% url 'cadastrar_parte_de_baixo' %}">
+              <img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          {% endfor %}
           <a href="{% url 'cadastrar_parte_de_baixo' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
           <a href="{% url 'cadastrar_parte_de_baixo' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
           <a href="{% url 'cadastrar_parte_de_baixo' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
@@ -59,8 +69,13 @@
         <div class="quadrado">Calçados</div>
       
         <div class="container">
-          <a href="{% url 'cadastrar_calçado' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-          <a href="{% url 'cadastrar_calçado' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          {% for parte in calcado %}
+            <a href="{% url 'pergunta_peca' tipo='calcado' id=parte.id %}" id="link_1">
+              <img src="{{ parte.imagem.url }}" class="img_button img_roupa"></a>
+          {% empty %}
+            <a href="{% url 'cadastrar_calçado' %}">
+              <img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          {% endfor %}
           <a href="{% url 'cadastrar_calçado' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
           <a href="{% url 'cadastrar_calçado' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
           <a href="{% url 'cadastrar_calçado' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
@@ -70,8 +85,13 @@
         <div class="quadrado">Acessórios</div>
       
         <div class="container">
-          <a href="{% url 'cadastrar_acessorio' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
-          <a href="{% url 'cadastrar_acessorio' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          {% for parte in acessorios %}
+            <a href="{% url 'pergunta_peca' tipo='acessorio' id=parte.id %}" id="link_1">
+              <img src="{{ parte.imagem.url }}" class="img_button img_roupa"></a>
+          {% empty %}
+            <a href="{% url 'cadastrar_acessorio' %}">
+              <img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
+          {% endfor %}
           <a href="{% url 'cadastrar_acessorio' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
           <a href="{% url 'cadastrar_acessorio' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
           <a href="{% url 'cadastrar_acessorio' %}"><img src="{% static 'IMG/add_icon.webp' %}" class="add img_button"></a>
