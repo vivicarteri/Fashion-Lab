@@ -3,8 +3,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.contenttypes.models import ContentType
+from django.db.models import Count
 from .models import Usuario, Partes_de_Cima, Partes_de_Baixo, Calçados, Acessórios, UsoRoupa
-from .forms import CadastroUsuarioForm, PartesDeCimaForm, PartesDeBaixoForm, CalcadosForm, AcessoriosForm, UsoRoupaForm
+from .forms import CadastroUsuarioForm, PartesDeCimaForm, PartesDeBaixoForm, CalcadosForm, AcessoriosForm, UsoRoupaForm, LookForm
 
 def home(request):
     return render(request, 'home.html')
@@ -81,10 +82,45 @@ def pergunta_peca(request, tipo, id):
         parte = CalcadosForm.objects.get(id=id)
     elif tipo == 'acessorio':
         parte = AcessoriosForm.objects.get(id=id)
-    return render(request, 'pergunta_peca.html', {'tipo': tipo, 'parte': parte})
 
-def cadastrar_uso(request):
-    return render(request, 'cadastrar_uso.html')
+    content_type = ContentType.objects.get_for_model(parte)
+
+    return render(request, 'pergunta_peca.html', {
+        'tipo': tipo,
+        'parte': parte,
+        'content_type_id': content_type.id,
+    })
+
+def cadastro_uso_roupa(request, roupa_id, content_type_id):
+    content_type = ContentType.objects.get(id=content_type_id)
+    roupa = content_type.get_object_for_this_type(id=roupa_id)
+    estrelas = range(1, 6)
+
+    usos_roupa = UsoRoupa.objects.filter(roupa_content_type=content_type, roupa_object_id=roupa.id)
+    ocasião_mais_frequente = usos_roupa.values('ocasiao').annotate(ocasiões_count=Count('ocasiao')).order_by('-ocasiões_count').first()
+
+    if ocasião_mais_frequente:
+        ocasião_mais_frequente = ocasião_mais_frequente['ocasiao']
+
+    if request.method == 'POST':
+        form = UsoRoupaForm(request.POST)
+        if form.is_valid():
+            uso_roupa = form.save(commit=False)
+            uso_roupa.roupa_content_type = content_type
+            uso_roupa.roupa_object_id = roupa.id
+            uso_roupa.save()
+            return redirect('armario')
+    
+    else:
+        form = UsoRoupaForm()
+
+    return render(request, 'cadastro_uso.html', {
+        'form': form,
+        'estrelas': estrelas,
+        'roupa': roupa,
+        'content_type': content_type,
+        'ocasião_mais_frequente': ocasião_mais_frequente
+    })
 
 def cadastra_parte_de_cima(request):
     if request.method == "POST":
@@ -100,7 +136,23 @@ def cadastra_parte_de_cima(request):
 
 def parte_de_cima(request, id):
     parte_de_cima = Partes_de_Cima.objects.get(id=id)
-    return render(request, 'parte_de_cima.html', {'parte_de_cima': parte_de_cima})
+    
+    parte_de_cima_usos = UsoRoupa.objects.filter(
+        roupa_content_type=ContentType.objects.get_for_model(Partes_de_Cima),
+        roupa_object_id=parte_de_cima.id
+    ).order_by('-data_uso')
+
+    ocasião_mais_frequente = parte_de_cima.ocasiao_mais_frequente()
+
+    estrelas = range(1, 6)
+    cor_visual = parte_de_cima.cor_visual
+    return render(request, 'parte_de_cima.html', {
+        'parte_de_cima': parte_de_cima,
+        'cor_visual': cor_visual,
+        'estrelas': estrelas,
+        'parte_de_cima_usos': parte_de_cima_usos,
+        'ocasião_mais_frequente': ocasião_mais_frequente,
+    })
 
 def parte_de_baixo(request, id):
     parte_de_baixo = Partes_de_Baixo.objects.get(id=id)
@@ -150,21 +202,33 @@ def cadastra_acessorio(request):
         form = AcessoriosForm()
     return render(request, 'cadastrar_acessorio.html', {'form': form})
 
-def cadastro_uso_roupa(request, roupa_id, content_type_id):
-    content_type = ContentType.objects.get(id=content_type_id)
-    roupa = content_type.get_object_for_this_type(id=roupa_id)
+def looks(request):
+    partes_de_cima = Partes_de_Cima.objects.filter(usuario=request.user)
+    partes_de_baixo = Partes_de_Baixo.objects.filter(usuario=request.user)
+    calçados = Calçados.objects.filter(usuario=request.user)
+    acessórios = Acessórios.objects.filter(usuario=request.user)
+
+    parte_de_cima_selecionada = None
+    parte_de_baixo_selecionada = None
+    calcado_selecionado = None
 
     if request.method == 'POST':
-        form = UsoRoupaForm(request.POST)
+        form = LookForm(request.POST)
         if form.is_valid():
-            uso_roupa = form.save(commit=False)
-            uso_roupa.roupa_content_type = content_type
-            uso_roupa.roupa_object_id = roupa.id
-            uso_roupa.save()
+            parte_de_cima_selecionada = form.cleaned_data.get('parte_de_cima')
+            parte_de_baixo_selecionada = form.cleaned_data.get('parte_de_baixo')
+            calcado_selecionado = form.cleaned_data.get('calcado')
 
-        return redirect('armario')
-    
     else:
-        form = UsoRoupaForm()
+        form = LookForm()
 
-    return render(request, 'cadastro_uso.html', {'form': form})
+    return render(request, 'looks.html', {
+        'form': form,
+        'partes_de_cima': partes_de_cima,
+        'partes_de_baixo': partes_de_baixo,
+        'calçados': calçados,
+        'acessórios': acessórios,
+        'parte_de_cima_selecionada': parte_de_cima_selecionada,
+        'parte_de_baixo_selecionada': parte_de_baixo_selecionada,
+        'calcado_selecionado': calcado_selecionado,
+    })

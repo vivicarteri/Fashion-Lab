@@ -1,0 +1,97 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style-type: none;
+    list-style: none;
+    color: inherit;
+    outline: none;
+    resize: none;
+    box-sizing: border-box;
+}
+
+#titulo {
+    font-size: 35px;
+    font-family: 'Tilt Warp';
+    text-align: center;
+    color: #9705DA;
+    font-weight: normal;
+    margin: 30px;
+}
+
+.quadrado {
+    font-size: 18px;
+    font-family: 'Tilt Warp';
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(to bottom, #B75EF2, #EC43BF);
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
+    margin-left: 100px;
+    margin-top: 50px;
+    padding: 20px; 
+  }
+
+.container {
+    width: 100%;
+    display: flex;
+    align-items: left;
+    gap: 100px;
+    margin-top: 60px;
+    margin-bottom: 70px;
+    margin-left: 100px;
+  }
+  
+.img_button {
+    max-width: 100%;
+    height: auto;    
+    display: block;   
+    margin: 10px auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+.img_button:hover {
+    transform: scale(1.1);
+  }
+
+.img_roupa {
+    max-width: 200px;
+    height: auto;
+  }
+
+.img_manequim{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 600px;
+}
+
+.submeter {
+    width: 200px;
+    height: 50px;
+    font-family: 'Tilt Warp';
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #EC43BF;
+    color: white;
+    border: 2px solid white;
+    margin: 50px;
+    margin-left: 1200px;
+}
+
+.submeter:hover {
+    background-color: #AC1BBD;
+
+}
+
+#cor_footer{
+    background: #9705DA;
+  }

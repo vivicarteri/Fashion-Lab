@@ -1,89 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastre a parte de baixo!</title>
-    <style>
-        /* Título */
-        .login-container h2 {
-            font-family: 'Georgia', serif;
-            color: #6a0d6a;
-            font-size: 24px;
-            margin-bottom: 30px;
-        }
-
-        /* Estilo dos campos */
-        .input-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .input-group label {
-            font-size: 16px;
-            display: block;
-            color: #6a0d6a;
-        }
-
-        .input-group input,
-        .input-group select {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid #d180d8;
-            border-radius: 10px;
-            font-size: 14px;
-            outline: none;
-        }
-
-        .input-group input:focus,
-        .input-group select:focus {
-            border-color: #ff69b4;
-        }
-
-        /* Botões */
-        .button-group {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-        }
-
-        .btn {
-            border: none;
-            padding: 10px 20px;
-            font-size: 14px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-family: Arial, sans-serif;
-            transition: background-color 0.3s ease;
-        }
-
-        .limpar {
-            background-color: #ffe4f7;
-            color: #6a0d6a;
-            border: 2px solid #d180d8;
-        }
-
-        .limpar:hover {
-            background-color: #ffd6f3;
-        }
-
-        .submeter {
-            background-color: #ff69b4;
-            color: white;
-            border: 2px solid #d180d8;
-        }
-
-        .submeter:hover {
-            background-color: #ff85c4;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Cadastre a sua peça de baixo!</title>
+    {% load static %}
+    <link href="{% static 'CSS/header_e_footer.css' %}" rel="stylesheet">
+    <link href="{% static 'CSS/cadastro_roupas.css' %}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Emblema+One&family=Tilt+Warp&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
     <form method="POST" class="login-container">
         {% csrf_token %}
 
         <h2>Cadastre a parte de baixo</h2>
+
         <div class="input-group">
             <label for="id_imagem">Imagem:</label>
             <input type="file" id="id_imagem" name="imagem">
@@ -95,9 +30,14 @@
             <input type="text" id="id_descricao" name="descricao" maxlength="100">
         </div>
 
+        <div class="input-group-diferente">
+            <label for="id_cor_visual">Cor:</label>
+            <input type="color" id="id_cor_visual" name="cor_visual" value="{{ form.cor_visual.value }}">
+        </div>
+
         <div class="input-group">
-            <label for="id_cor">Cor:</label>
-            <input type="text" id="id_cor" name="cor" maxlength="100">
+            <label for="id_cor_texto">Cor (por extenso):</label>
+            <input type="text" id="id_cor_texto" name="cor_texto" maxlength="20">
         </div>
 
         <div class="input-group">

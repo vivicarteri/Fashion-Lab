@@ -30,15 +30,16 @@ urlpatterns = [
     path('login_usuario/', views.login_usuario, name='login_usuario'),
     path('logout/', views.logout_usuario, name='logout_usuario'),
     path('pergunta_peca/<str:tipo>/<int:id>/', views.pergunta_peca, name='pergunta_peca'),
-    path('cadastrar_uso/', views.cadastrar_uso, name='cadastrar_uso'),
-    path('cadastrar/partecima/', views.cadastra_parte_de_cima, name='cadastrar_parte_de_cima'),
+    path('cadastro_uso/<int:roupa_id>/<int:content_type_id>/', views.cadastro_uso_roupa, name='cadastro_uso'),
     path('parte_de_cima/<int:id>/', views.parte_de_cima, name='parte_de_cima'),
     path('parte_de_baixo/<int:id>/', views.parte_de_baixo, name='parte_de_baixo'),
     path('calcado/<int:id>/', views.calcado, name='calcado'),
     path('acessorio/<int:id>/', views.acessorio, name='acessorio'),
+    path('cadastrar/partecima/', views.cadastra_parte_de_cima, name='cadastrar_parte_de_cima'),
     path('cadastrar/partebaixo/', views.cadastra_parte_de_baixo, name='cadastrar_parte_de_baixo'),
     path('cadastrar/calcado/', views.cadastra_calçado, name='cadastrar_calçado'),
     path('cadastrar/acessorio/', views.cadastra_acessorio, name='cadastrar_acessorio'),
+    path('looks/', views.looks, name='looks'),
 ]
 
 if settings.DEBUG:

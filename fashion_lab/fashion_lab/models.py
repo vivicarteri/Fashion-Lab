@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.core.exceptions import ValidationError
-from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
 from collections import Counter
 from django.contrib.contenttypes.models import ContentType
 
@@ -25,31 +25,40 @@ class Partes_de_Cima(models.Model):
   usuario = models.ForeignKey(User, on_delete=models.CASCADE)
   imagem = models.ImageField(upload_to='imagens/partes_de_cima/')
   descricao = models.TextField(max_length=100)
-  cor = models.CharField(max_length=20)
+  cor_texto = models.CharField(max_length=20)
+  cor_visual = models.CharField(max_length=7, default='#000000')
   marca = models.CharField(max_length=100)
   material = models.CharField(max_length=100)
   tamanho = models.CharField(
     max_length=10,
     choices=[
-      ('pp', 'PP'),
-        ('p', 'P'),
-        ('m', 'M'),
-        ('g', 'G'),
-        ('gg', 'GG'),
-        ('xgg', 'XGG'),
-        ('extra_gg', 'Extra GG'),
+      ('PP', 'PP'),
+        ('P', 'P'),
+        ('M', 'M'),
+        ('G', 'G'),
+        ('GG', 'GG'),
+        ('XGG', 'XGG'),
     ],
   )
+  usos = GenericRelation('UsoRoupa')
 
   def __str__(self):
     return "%s" % (self.descricao)
   
   def total_usos(self):
-    return self.usos.count()
+    content_type = ContentType.objects.get_for_model(self)
+    return UsoRoupa.objects.filter(roupa_content_type=content_type, roupa_object_id=self.id).count()
 
   def ocasiao_mais_frequente(self):
-    ocasiões = [uso.ocasiao for uso in self.usos.all()]
-    return Counter(ocasiões).most_common(1)[0][0] if ocasiões else "Nenhuma"
+    usos = UsoRoupa.objects.filter(
+      roupa_content_type=ContentType.objects.get_for_model(Partes_de_Cima),
+      roupa_object_id=self.id
+        )
+    
+    ocasiões = [uso.ocasiao for uso in usos]
+    if ocasiões:
+        return max(set(ocasiões), key=ocasiões.count)
+    return None
   
   def media_avaliacoes(self):
     avaliacoes = [uso.avaliacao for uso in self.usos.all()]
@@ -62,6 +71,10 @@ class Partes_de_Cima(models.Model):
     ultimo_uso = self.usos.order_by('-data_uso').first()
     return ultimo_uso
   
+  def delete(self, *args, **kwargs):
+        self.uso_roupa.all().delete()
+        super().delete(*args, **kwargs)
+  
   class Meta:
         verbose_name = "Parte de Cima"
         verbose_name_plural = "Partes de Cima"
@@ -70,18 +83,19 @@ class Partes_de_Baixo(models.Model):
   usuario = models.ForeignKey(User, on_delete=models.CASCADE)
   imagem = models.ImageField(upload_to='imagens/partes_de_baixo/')
   descricao = models.TextField(max_length=100)
-  cor = models.CharField(max_length=20)
+  cor_texto = models.CharField(max_length=20)
+  cor_visual = models.CharField(max_length=7, default='#000000')
   marca = models.CharField(max_length=100)
   material = models.CharField(max_length=100)
   tamanho = models.CharField(max_length=10, 
         choices=[
-        ('pp', 'PP (36-38)'),
-        ('p', 'P (38-40)'),
-        ('m', 'M (40-42)'),
-        ('g', 'G (42-44)'),
-        ('gg', 'GG (44-46)'),
-        ('xgg', 'XGG (46-48)'),
-        ('extra_gg', 'Extra GG (48+)'),
+        ('PP', 'PP (36-38)'),
+        ('P', 'P (38-40)'),
+        ('M', 'M (40-42)'),
+        ('G', 'G (42-44)'),
+        ('GG', 'GG (44-46)'),
+        ('XGG', 'XGG (46-48)'),
+        ('Extra GG', 'Extra GG (48+)'),
     ])
   comprimento = models.CharField(max_length=10, choices=[
         ('curto', 'Curto'),
@@ -119,7 +133,8 @@ class Calçados(models.Model):
   usuario = models.ForeignKey(User, on_delete=models.CASCADE)
   imagem = models.ImageField(upload_to='imagens/calcados/')
   descricao = models.TextField(max_length=100)
-  cor = models.CharField(max_length=20)
+  cor_texto = models.CharField(max_length=20)
+  cor_visual = models.CharField(max_length=7, default='#000000')
   marca = models.CharField(max_length=100)
   material = models.CharField(max_length=100, choices=[ 
         ('borracha', 'Borracha'),
@@ -168,7 +183,8 @@ class Acessórios(models.Model):
   usuario = models.ForeignKey(User, on_delete=models.CASCADE)
   imagem = models.ImageField(upload_to='imagens/acessorios/')
   descricao = models.TextField(max_length=100)
-  cor = models.CharField(max_length=20)
+  cor_texto = models.CharField(max_length=20)
+  cor_visual = models.CharField(max_length=7, default='#000000')
   marca = models.CharField(max_length=100)
 
   tipo = models.CharField(max_length=50, choices=[
@@ -228,19 +244,19 @@ class Acessórios(models.Model):
     verbose_name_plural = "Acessórios"
 
 class UsoRoupa(models.Model):
-    roupa_content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    roupa_content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, related_name="usos")
     roupa_object_id = models.PositiveIntegerField()
     roupa = GenericForeignKey('roupa_content_type', 'roupa_object_id')
 
     data_uso = models.DateField()
     avaliacao = models.IntegerField(choices=[(i, f"{i} estrelas") for i in range(6)])
     ocasiao = models.CharField(max_length=100, choices=[
-        ('trabalho', 'Trabalho'),
-        ('lazer', 'Lazer'),
-        ('festa', 'Festa'),
-        ('casual', 'Casual'),
-        ('formal', 'Formal'),
-        ('outro', 'Outro'),
+        ('Trabalho', 'Trabalho'),
+        ('Lazer', 'Lazer'),
+        ('Festa', 'Festa'),
+        ('Casual', 'Casual'),
+        ('Formal', 'Formal'),
+        ('Outro', 'Outro'),
     ])
 
     def __str__(self):

@@ -59,7 +59,7 @@ body {
     margin: 20px auto;
     border-radius: 20px;
     padding: 20px;
-    padding-top: 50px;
+    padding-top: 35px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   }
 
@@ -83,24 +83,28 @@ body {
     font-weight: normal;
 }
 
+label {
+    font-size: 25px;
+    color: white;
+    margin-right: 8px;
+}
+
 .rate {
-    display: flex;        
+    display: flex;
     justify-content: center; 
     align-items: center; 
-    direction: row;
-    height: 46px;
-    padding: 5px;
+    height: 50px;
+    margin-left: 130px;
 }
 
-label {
-    font-size: 30px;
-    color: white;
-    cursor: default;
+.fa-star {
+    transform: scale(2.3);
+    width: 75px; 
 }
 
-.filled {
+.checked {
     color: #FFD700;
-}
+  }
 
 .empty {
     color: white;
@@ -110,14 +114,21 @@ label {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.cor-visual {
+    width: 40px;
+    height: 30px;
+    border-radius: 20px;
+    margin-top: 10px;
 }
 
 p {
     font-family: 'Tilt Warp';
     font-size: 25px;
     margin-left: 40px;
+    margin-top: 10px;
     color: white;
     text-align: left;
     padding: 10px;
