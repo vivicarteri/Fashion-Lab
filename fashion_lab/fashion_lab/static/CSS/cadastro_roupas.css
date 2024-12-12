@@ -1,0 +1,83 @@
+.login-container h2 {
+    font-family: 'Tilt Warp';
+    font-weight: normal;
+    color: #AC1BBD;
+    font-size: 24px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    font-family: 'Tilt Warp';
+    margin: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 16px;
+    display: block;
+    color: #AC1BBD;
+}
+
+.input-group input,
+.input-group select {
+    font-family: 'Tilt Warp';
+    color: #AC1BBD;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #d180d8;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #EC43BF;
+}
+
+.input-group-diferente {
+    display: flex;
+    font-family: 'Tilt Warp';
+    color: #AC1BBD;
+    margin-left: 20px;
+    text-align: left;
+    gap: 15px;
+}
+
+.button-group {
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.btn {
+    border: none;
+    font-family: 'Tilt Warp';
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.limpar {
+    background-color: white;
+    color: #AC1BBD;
+    border: 2px solid #d180d8;
+}
+
+.limpar:hover {
+    background-color: #EC43BF;
+}
+
+.submeter {
+    background-color: #EC43BF;
+    color: white;
+    border: 2px solid #d180d8;
+}
+
+.submeter:hover {
+    background-color: #EC43BF;
+}

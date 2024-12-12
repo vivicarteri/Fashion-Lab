@@ -9,6 +9,7 @@
     <link href="{% static 'CSS/partes.css' %}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Emblema+One&family=Tilt+Warp&display=swap" rel="stylesheet">
 </head>
 
@@ -21,7 +22,9 @@
         </div>
         <nav class="nav-links">
             <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'home' %}">Sobre Nós</a>
             <a href="{% url 'armario' %}">Meu Armário</a>
+            <a href="{% url 'looks' %}">Meus Looks</a>
             <a href="{% url 'pergunta' %}">Cadastro</a>
         </nav>
     </header>
@@ -37,50 +40,66 @@
             <div class="quadrado_detalhes cor_1">
                 <h1 class="titulo">{{ parte_de_cima.descricao }}</h1>
 
-                <p>Avaliação:  </p>
+                <p><label>Avaliação: </label> </p>
                 <div class="rate">
-                    <input type="radio" id="star5" name="rate" value="5" />
-                    <label for="star5" title="text">5 stars</label>
-                    <input type="radio" id="star4" name="rate" value="4" />
-                    <label for="star4" title="text">4 stars</label>
-                    <input type="radio" id="star3" name="rate" value="3" />
-                    <label for="star3" title="text">3 stars</label>
-                    <input type="radio" id="star2" name="rate" value="2" />
-                    <label for="star2" title="text">2 stars</label>
-                    <input type="radio" id="star1" name="rate" value="1" />
-                    <label for="star1" title="text">1 star</label>
-                  </div>
+                    {% for i in estrelas %}
+                        {% if not i > parte_de_cima.media_avaliacoes %}
+                            <span class="fa fa-star checked"></span>
+                        {% else %}
+                            <span class="fa fa-star empty"></span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                    <p style="margin-left: 10px; font-size: 16px;">{{ media_avaliacoes }}</p>
+
                 <div class="item">
-                    <p>Cor:  {{ parte_de_cima.cor }}</p>
-                    <input type="color" id="cor" name="cor" value="#ff0000">
+                    <p><label style="margin-right: 0;"">Cor: </label> <div style="font-family: 'Tilt Warp'; font-size: 25px; 
+                    margin-top: 14px; color: {{ cor_visual }}";>{{ parte_de_cima.cor_texto }}</div></p>
                 </div> 
 
                 <div class="item">
-                    <p>Marca:  {{ parte_de_cima.marca }}</p>
+                    <p><label>Marca: </label> {{ parte_de_cima.marca }}</p>
                 </div> 
 
                 <div class="item">
-                    <p>Material:  {{ parte_de_cima.material }}</p>
+                    <p><label>Material: </label> {{ parte_de_cima.material }}</p>
                 </div>
 
                 <div class="item">
-                    <p>Tamanho:  {{ parte_de_cima.tamanho }}</p>
+                    <p><label>Tamanho: </label> {{ parte_de_cima.tamanho }}</p>
                 </div>
             </div>
 
             <div class="quadrado_detalhes cor_2">
+
+                {% if parte_de_cima_usos %}
+                {% with ultimo_uso=parte_de_cima_usos|first %}
+                    <div class="item">
+                        <p>Total de vezes que já vestiu a peça: {{ parte_de_cima_usos.count }}</p>
+                    </div>
+                    <div class="item">
+                        <p>Ocasião para a qual mais vestiu a roupa: {{ ocasião_mais_frequente }}</p>
+                    </div>
+                    <div class="item">
+                        <p>Último uso: {{ ultimo_uso.data_uso }}</p>
+                    </div>
+                    <div class="item">
+                        <p>Ocasião do último uso: {{ ultimo_uso.ocasiao }}</p>
+                    </div>
+                    <div class="item">
+                        {% if ultimo_uso.avaliacao == 1 %}
+                            <p>Avaliação do último uso: {{ ultimo_uso.avaliacao }} estrela</p>
+                        {% else %}
+                            <p>Avaliação do último uso: {{ ultimo_uso.avaliacao }} estrelas</p>
+                        {% endif %}
+                    </div>
+                {% endwith %}
+                {% else %}
                 <div class="item">
-                    <p>Quantas vezes já foi vestida no mês?</p>
-                    <input type="number" id="uso" min="0" max="31">
-                </div> 
-                <div class="item">
-                    <p>Último uso: </p>
-                    <input type="date" id="last-use">
-                </div> 
-                <div class="item">
-                    <p>Ocasião para a qual mais vestiu a roupa: </p>
-                    <input type="text" id="ocasiao">
-                </div> 
+                    <p>Você ainda não cadastrou nenhum uso para essa peça!</p>
+                </div>
+                {% endif %}
+
             </div>
 
             <div class="quadrado_detalhes cor_3">
@@ -94,8 +113,6 @@
                 </div> 
             </div>
         </section>
-
-                <button type="submit">Enviar Avaliação</button>
             </form>
     </main>
 
@@ -105,7 +122,7 @@
               <img class="rodape_link_imagem" src="{% static 'IMG/git_icone.png' %}">
           </a>
           <p class="p_footer"> 
-              Desenvolvido por — Anna Clara Luna, Felipe Pádua, Felipe Ripper  e Vitória Carteri. 
+              Desenvolvido por — Anna Clara Luna, Felipe Pádua, Felipe Ripper e Vitória Carteri. 
           </p>
         </div>
       </footer>

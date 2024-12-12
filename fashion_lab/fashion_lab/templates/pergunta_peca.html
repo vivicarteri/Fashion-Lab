@@ -14,6 +14,7 @@
 
 <body>
     <div id="conteudo">
+
     <header>
         <div class="logo-container">
             <img src="{% static 'IMG/logo.png' %}" class="logo">
@@ -21,7 +22,9 @@
         </div>
         <nav class="nav-links">
             <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'home' %}">Sobre Nós</a>
             <a href="{% url 'armario' %}">Meu Armário</a>
+            <a href="{% url 'looks' %}">Meus Looks</a>
             <a href="{% url 'pergunta' %}">Cadastro</a>
         </nav>
     </header>
@@ -37,18 +40,20 @@
                 Visualizar a peça</a>
             </div>
             <div class="quadrado img_button">
-                <a href="{% url 'cadastrar_uso' %}">Cadastrar uso</a>
+                <a href="{% url 'cadastro_uso' roupa_id=parte.id content_type_id=content_type_id %}">Cadastrar uso</a>
             </div>
         </div>
     </main>
-</div>
+
+    </div>
+
     <footer id="cor_footer">
         <div>
           <a class="rodape__link" href="https://github.com/vivicarteri/FashionLab">
               <img class="rodape_link_imagem" src="{% static 'IMG/git_icone.png' %}">
           </a>
           <p class="p_footer"> 
-              Desenvolvido por — Anna Clara Luna, Felipe Pádua, Felipe Ripper  e Vitória Carteri. 
+              Desenvolvido por — Anna Clara Luna, Felipe Pádua, Felipe Ripper e Vitória Carteri. 
           </p>
         </div>
       </footer>
