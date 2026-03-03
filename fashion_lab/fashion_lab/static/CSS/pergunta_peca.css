@@ -8,6 +8,7 @@
     outline: none;
     resize: none;
     box-sizing: border-box;
+    font-weight: normal;
 }
 
 #conteudo {

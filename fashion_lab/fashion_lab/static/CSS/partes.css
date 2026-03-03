@@ -59,7 +59,7 @@ body {
     margin: 20px auto;
     border-radius: 20px;
     padding: 20px;
-    padding-top: 50px;
+    padding-top: 35px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   }
 
@@ -83,63 +83,52 @@ body {
     font-weight: normal;
 }
 
+label {
+    font-size: 25px;
+    color: white;
+    margin-right: 8px;
+}
+
 .rate {
-    display: flex;        
+    display: flex;
     justify-content: center; 
     align-items: center; 
-    flex-direction: row-reverse;
-    height: 46px;
-    padding: 5px;
+    height: 50px;
+    margin-left: 130px;
 }
 
-.rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
+.fa-star {
+    transform: scale(2.3);
+    width: 75px; 
 }
 
-.rate:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size: 50px;
-    color:white;
-}
+.checked {
+    color: #FFD700;
+  }
 
-.rate:not(:checked) > label:before {
-    content: '★ ';
-}
-
-.rate > input:checked ~ label {
-    color: #FFEF64;    
-}
-
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: #FFEF64;  
-}
-
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-    color: #FFEF64;
+.empty {
+    color: white;
 }
 
 .item {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.cor-visual {
+    width: 40px;
+    height: 30px;
+    border-radius: 20px;
+    margin-top: 10px;
 }
 
 p {
     font-family: 'Tilt Warp';
     font-size: 25px;
     margin-left: 40px;
+    margin-top: 10px;
     color: white;
     text-align: left;
     padding: 10px;

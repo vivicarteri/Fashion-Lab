@@ -1,5 +1,5 @@
 from django import forms
-from .models import Usuario, Partes_de_Cima, Partes_de_Baixo, Calçados, Acessórios
+from .models import Usuario, Partes_de_Cima, Partes_de_Baixo, Calçados, Acessórios, UsoRoupa
 
 class CadastroUsuarioForm(forms.ModelForm):
     nome = forms.CharField(
@@ -69,9 +69,13 @@ class PartesDeCimaForm(forms.ModelForm):
         label='Descrição',
         max_length=100
     )
-    cor = forms.CharField(
+    cor_texto = forms.CharField(
         label='Cor',
         max_length=10
+    )
+    cor_visual = forms.CharField(
+        widget=forms.widgets.Input(attrs={'type': 'color'}),
+        required=False
     )
     marca = forms.CharField(
         label='Marca',
@@ -88,7 +92,10 @@ class PartesDeCimaForm(forms.ModelForm):
 
     class Meta:
         model = Partes_de_Cima
-        fields = ['imagem','descricao', 'cor', 'marca', 'material', 'tamanho']
+        fields = ['imagem','descricao', 'cor_texto', 'cor_visual', 'marca', 'material', 'tamanho']
+        widgets = {
+            'cor_visual': forms.TextInput(attrs={'type': 'color'}) 
+        }
     
     def save(self, commit=True):
         return super().save(commit=commit)
@@ -102,9 +109,12 @@ class PartesDeBaixoForm(forms.ModelForm):
         label='Descrição',
         max_length=100
     )
-    cor = forms.CharField(
+    cor_texto = forms.CharField(
         label='Cor',
-        max_length=100
+        max_length=10
+    )
+    cor_visual = forms.CharField(
+        widget=forms.widgets.Input(attrs={'type': 'color'})
     )
     marca = forms.CharField(
         label='Marca',
@@ -125,7 +135,10 @@ class PartesDeBaixoForm(forms.ModelForm):
 
     class Meta:
         model = Partes_de_Baixo
-        fields = ['imagem','descricao', 'cor', 'marca', 'material', 'tamanho', 'comprimento']
+        fields = ['imagem','descricao', 'cor_texto', 'cor_visual', 'marca', 'material', 'tamanho', 'comprimento']
+        widgets = {
+            'cor_visual': forms.TextInput(attrs={'type': 'color'}) 
+        }
 
     def save(self, commit=True):
         return super().save(commit=commit)
@@ -138,9 +151,12 @@ class CalcadosForm(forms.ModelForm):
         label='Descrição',
         max_length=100
     )
-    cor = forms.CharField(
+    cor_texto = forms.CharField(
         label='Cor',
-        max_length=100
+        max_length=10
+    )
+    cor_visual = forms.CharField(
+        widget=forms.widgets.Input(attrs={'type': 'color'})
     )
     marca = forms.CharField(
         label='Marca',
@@ -162,7 +178,10 @@ class CalcadosForm(forms.ModelForm):
 
     class Meta:
         model = Calçados
-        fields = ['imagem','descricao', 'cor', 'marca', 'material', 'tamanho', 'tipo']
+        fields = ['imagem','descricao', 'cor_texto', 'cor_visual', 'marca', 'material', 'tamanho', 'tipo']
+        widgets = {
+            'cor_visual': forms.TextInput(attrs={'type': 'color'}) 
+        }
 
     def save(self, commit=True):
         return super().save(commit=commit)
@@ -175,9 +194,12 @@ class AcessoriosForm(forms.ModelForm):
         label='Descrição',
         max_length=100
     )
-    cor = forms.CharField(
+    cor_texto = forms.CharField(
         label='Cor',
-        max_length=100
+        max_length=10
+    )
+    cor_visual = forms.CharField(
+        widget=forms.widgets.Input(attrs={'type': 'color'})
     )
     marca = forms.CharField(
         label='Marca',
@@ -203,7 +225,42 @@ class AcessoriosForm(forms.ModelForm):
 
     class Meta:
         model = Acessórios
-        fields = ['imagem','descricao', 'cor', 'marca', 'material', 'tipo', 'tamanho', 'material_acessorio']
+        fields = ['imagem','descricao', 'cor_texto', 'cor_visual', 'marca', 'material', 'tipo', 'tamanho', 'material_acessorio']
+        widgets = {
+            'cor_visual': forms.TextInput(attrs={'type': 'color'}) 
+        }
 
     def save(self, commit=True):
         return super().save(commit=commit)
+    
+
+class UsoRoupaForm(forms.ModelForm):
+    data_uso = forms.DateField(
+        label="Data de Uso",
+        widget=forms.DateInput(attrs={'type': 'date'})
+    )
+    avaliacao = forms.ChoiceField(
+        label="Avaliação",
+        choices=[(i, f"{i} estrelas") for i in range(1, 6)],
+        widget=forms.RadioSelect
+    )
+    ocasiao = forms.ChoiceField(
+        label="Ocasião",
+        choices=[
+            ('Trabalho', 'Trabalho'),
+            ('Lazer', 'Lazer'),
+            ('Festa', 'Festa'),
+            ('Casual', 'Casual'),
+            ('Formal', 'Formal'),
+            ('Outro', 'Outro'),
+        ]
+    )
+
+    class Meta:
+        model = UsoRoupa
+        fields = ['data_uso', 'avaliacao', 'ocasiao']
+
+class LookForm(forms.Form):
+    parte_de_cima = forms.ModelChoiceField(queryset=Partes_de_Cima.objects.all(), required=False)
+    parte_de_baixo = forms.ModelChoiceField(queryset=Partes_de_Baixo.objects.all(), required=False)
+    calcado = forms.ModelChoiceField(queryset=Calçados.objects.all(), required=False)
